@@ -1,0 +1,15 @@
+{
+  "name": "clientbarshan",
+  "version": "1.0.0",
+  "description": "Client-Barshan-Server",
+  "main": "app.js",
+  "scripts": {
+    "test": "server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Github"
+  },
+  "author": "Rick Sarkar",
+  "license": "ISC"
+}
