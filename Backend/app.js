@@ -13,16 +13,21 @@ app.set("views", path.join(__dirname, "../Frontend/Pug"));
 
 app.use('/files/css', express.static('../Frontend/Css'));
 app.use('/files/js', express.static('../Frontend/Js'));
+app.use('/files/img', express.static('../Frontend/Img'));
 
 // _________________________________________________________________
 const Get_Signup_User = require("./User_Signup/Get_Signup_User");
 const Post_Signup_User = require("./User_Signup/Post_Signup_User");
+const Post_Signup_OTP_User = require("./User_Signup/Post_Signup_OTP_User");
+const OTP_VERIF_Sign = require("./User_Signup/OTP_VERIF_Sign");
 // _________________________________________________________________
 
 
 app.get("/signup",Get_Signup_User)
 app.post("/signup",Post_Signup_User)
 
+app.get("/signup/otp",Post_Signup_OTP_User);
+app.post("/signup/otp",OTP_VERIF_Sign);
 
 
 
@@ -34,4 +39,4 @@ app.get("/",async(req, res)=>{
     res.status(200).send("Hi");
 });
 
-app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://192.168.68.57:81:${process.env.Port}`)});
+app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://192.168.0.12:${process.env.Port}`)});

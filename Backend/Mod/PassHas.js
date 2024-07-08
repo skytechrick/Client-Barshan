@@ -55,7 +55,7 @@ async function Pass_Hash(Pass, Email){
     Has = Has + Hass1;
 
     let final = await bcrypt.hash(Has, 13);
-    console.log(final);
+    // console.log(final);
 
     return final;
     

@@ -1,0 +1,113 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("http://192.168.0.12:81/files/img/BacKc2.jpg");
+    background-size: cover;
+    background-repeat: 0;
+    background-position: 0%;
+    background-position: center;
+}
+
+
+.xc {
+    width: 100vw;
+    height: 100vh;
+    /* background: rgb(2,0,36); */
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(22,22,93,0.5663515406162465) 15%, rgba(6,6,53,0.3534663865546218) 30%, rgba(0,0,0,0.13217787114845936) 48%, rgba(9,9,67,0.36747198879551823) 64%, rgba(21,21,91,0.5887605042016807) 83%, rgba(0,0,0,1) 100%);
+}
+
+.XD {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Cen {
+    margin-bottom: 50px;
+    background-color: rgba(255, 255, 255, 0.629);
+    box-shadow: 0 0 10px #aaa;
+    width: 180px;
+    height: 180px;
+    padding: 20px;
+}
+
+
+.Form {
+    width: 100%;
+    height: 100%;
+}
+
+
+.Cener{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.Inp {
+    padding: 6px 10px;
+    text-align: center;
+    outline: none;
+    width: 100px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.512);
+    border-bottom: 1px solid #aaa;
+}
+
+.Inp:hover {
+    border-bottom: 2px solid #aaa;
+    /* background-color: aqua; */
+}
+
+.Inp:active {
+    border-bottom: 2px solid #aaa;
+    /* background-color: aqua; */
+}
+
+.Inp:focus {
+    border-bottom: 2px solid #aaa;
+    /* background-color: aqua; */
+}
+
+
+#Btn {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    background-color: rgb(159, 225, 255);
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#Btn:hover {
+    background-color: rgb(105, 208, 255);
+    text-decoration: underline;
+}
+
+#Btn:active {
+    background-color: rgb(43, 188, 255);
+}
+
+#Btn:focus {
+    background-color: rgb(105, 208, 255);
+    /* background-color: rgb(43, 188, 255); */
+}
+
+#Message {
+    display: none;
+    font-size: 12px;
+    color: red;
+}
+
+

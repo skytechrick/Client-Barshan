@@ -1,7 +1,7 @@
 
 const Get_Signup_User = async(req, res) => {
 
-    if (req.cookies.U_ID != undefined) {
+    if (req.cookies.ID == undefined) {
         if(true){
         // if(req.cookies.U_ID){
 
@@ -9,17 +9,17 @@ const Get_Signup_User = async(req, res) => {
             res.cookie("Signup","New", { 
                 path:"/",
                 secure: false,
-                maxAge: 120000,
+                maxAge: 1200000,
                 overwirte:true,
                 httpOnly: true,
             });
             res.status(200).render("Signup");
         
         }else{
-            res.status(200).redirect("http://192.168.68.57:81/");
+            res.status(200).redirect("http://192.168.0.12:81/");
         }
     }else{
-        res.status(200).redirect("http://192.168.68.57:81/");
+        res.status(200).redirect("http://192.168.0.12:81/");
     }
     
 
