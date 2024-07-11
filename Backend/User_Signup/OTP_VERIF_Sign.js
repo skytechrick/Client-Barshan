@@ -33,7 +33,12 @@ const OTP_VERIF_Sign = async (req, res) =>{
 
                 
                 await User_Profile.updateOne({Email:Men.Email},{$set:{Auth:{Auth_ID:"",OTP:""},Verified:"Yes"}});
+                res.clearCookie("Signup");
+                res.clearCookie("Auth_OTP");
+                res.clearCookie("Email");
+                res.clearCookie("Status");
                 res.status(200).json({Success:true,Message:"OTP Verified"});
+                
             }else{
                 res.status(200).json({Success:false,Message:"Wrong OTP"});
             }

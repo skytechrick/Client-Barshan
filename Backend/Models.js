@@ -13,6 +13,7 @@ db.once('open',() => {
 
 let database = {
     _id:{type:String},
+    Logs:{type:String},
     Name:{type:String},
     Email:{type:String},
     Mobile_Number:{type:String},

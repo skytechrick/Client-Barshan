@@ -1,9 +1,6 @@
 require('dotenv').config();
 
 const bcrypt = require('bcrypt');
-const saltRounds = 9;
-
-
 function binn(decimal){
     if (decimal === 0) {
         return '0'.padStart(12, '0');
@@ -46,18 +43,12 @@ async function Pass_Hash(Pass, Email){
     
 
     
-    let X = New_Pass + New_Pass1;
+    let X = New_Pass + Sig+ New_Pass1;
     
-    let Has = await bcrypt.hash(X, saltRounds);
-
-    let Hass1 = await bcrypt.hash(Sig , saltRounds);
-
-    Has = Has + Hass1;
-
-    let final = await bcrypt.hash(Has, 13);
+    let Final = await bcrypt.hash(X, 9);
     // console.log(final);
 
-    return final;
+    return {Final:Final, X:X};
     
 }
 

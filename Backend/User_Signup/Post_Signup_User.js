@@ -13,6 +13,7 @@ const Transporter = nodemailer.createTransport({
         pass: 'xbuo ytyu rgrd xyrd'
     }
 });
+
 const Post_Signup_User = async(req,res)=>{
     if (req.cookies.Signup) {
         if(true){
@@ -26,6 +27,12 @@ const Post_Signup_User = async(req,res)=>{
                 let Email = Opt.Email;
                 let Create_Password = Opt.Create_Password;
                 let Confirm_Password = Opt.Confirm_Password;
+                try {
+                    Email = Email.trim();
+                    Email = Email.toLowerCase();
+                } catch (error) {
+                    Email = Email;
+                }
 
                 function Check_Return(Name, Email, Mob, Create_Password,  Confirm_Password) {
                     
@@ -141,6 +148,7 @@ const Post_Signup_User = async(req,res)=>{
                 let cc = Check_Return(Name, Email, Mob, Create_Password, Confirm_Password)
                 if (cc.Name == 1 && cc.Email == 1 && cc.Mob == 1 && cc.Cre_Pass == 1 && cc.Con_Pass == 1) {
 
+
                     let ll = 1;
                     for (let zx = 0; zx < Users.length; zx++) {
                         const element = Users[zx];
@@ -177,20 +185,21 @@ const Post_Signup_User = async(req,res)=>{
                         }
                         let Auth_Token1 = Auth_Token(32);
                         let OT = OTP();
-                        let P = await Pass_Hash(Create_Password, Email);
+                        let {Final, X} = await Pass_Hash(Create_Password, Email);
                         
                         let Name1 = Name;
                         let Mobile1 = Mob;
                         let OTP1 = OT;
                         let Email1 = Email;
-                        let MAILSENT = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>OTP Verification | ZIPBUY</title><style>body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}.container{max-width:600px;width:100%;margin:auto;padding-bottom:10px;box-shadow:0 0 10px #aaa}.container h2{background-color:rgb(103, 187, 255);padding:20px;margin-bottom:0}.container p{padding:20px;margin:0;padding-bottom:0}.OTP{padding:0 10px;display:block;text-align:center;font-size:24px;font-weight:bold}footer{padding:0 20px}.Not{padding:0 20px;color:red}.NSdsf,.YouT{padding:20px}table{padding:0 20px;margin-bottom:20px}table tr td:nth-child(1){font-weight:bold}.name{display:block;padding:10px 0}</style></head><body><div class="container"><h2>OTP Verification | Account Verification | ZIPBUY</h2><p>Hello, dear customer<br><span class="name"><strong>Name: </strong>${Name1}<br><strong>Mobile: </strong>+91 ${Mobile1}</span>Thank you for creating Account on <strong>ZIPBUY</strong>. To confirm the creation of your account, please enter this One Time Password (OTP).</p><div class="YouT">Your One Time Password is:</div><hr><div class="OTP">${OTP1}</div><hr><div class="Not"><strong>NOTE:</strong> This is very confidential. Do not share this email with anyone.</div><div class="NSdsf">If you did not create this account, please ignore this email and avoid sharing this email and OTP. Contact us directly at <a href="http://192.168.0.12/contact-us">Link</a></div><table><tr><td>Website:</td><td><a href="http://192.168.0.12">Link</a></td></tr><tr><td>Complaint:</td><td><a href="http://192.168.0.12/contact">Link</a></td></tr></table><footer>Thank you,<br>Team GSB</footer></div></body></html>`;
+                        let MAILSENT = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>OTP Verification | ZIPBUY</title><style>body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}.container{max-width:600px;width:100%;margin:auto;padding-bottom:10px;box-shadow:0 0 10px #aaa}.container h2{background-color:rgb(103, 187, 255);padding:20px;margin-bottom:0}.container p{padding:20px;margin:0;padding-bottom:0}.OTP{padding:0 10px;display:block;text-align:center;font-size:24px;font-weight:bold}footer{padding:0 20px}.Not{padding:0 20px;color:red}.NSdsf,.YouT{padding:20px}table{padding:0 20px;margin-bottom:20px}table tr td:nth-child(1){font-weight:bold}.name{display:block;padding:10px 0}</style></head><body><div class="container"><h2>OTP Verification | Account Verification | ZIPBUY</h2><p>Hello, dear customer<br><span class="name"><strong>Name: </strong>${Name1}<br><strong>Mobile: </strong>+91 ${Mobile1}</span>Thank you for creating Account on <strong>ZIPBUY</strong>. To confirm the creation of your account, please enter this One Time Password (OTP).</p><div class="YouT">Your One Time Password is:</div><hr><div class="OTP">${OTP1}</div><hr><div class="Not"><strong>NOTE:</strong> This is very confidential. Do not share this email with anyone.</div><div class="NSdsf">If you did not create this account, please ignore this email and avoid sharing this email and OTP. Contact us directly at <a href="http://localhost/contact-us">Link</a></div><table><tr><td>Website:</td><td><a href="http://localhost">Link</a></td></tr><tr><td>Complaint:</td><td><a href="http://localhost/contact">Link</a></td></tr></table><footer>Thank you,<br>Team GSB</footer></div></body></html>`;
                         
                         let database = {
                             _id:Profile_ID1,
+                            Logs:"",
                             Name:Name,
                             Email:Email,
                             Mobile_Number:Mob,
-                            Password:P,
+                            Password:Final,
                             Auth:{
                                 Auth_ID:Auth_Token1,
                                 OTP:OT,
@@ -266,7 +275,7 @@ const Post_Signup_User = async(req,res)=>{
                 return res.status(200).json({Message:"Unauthorised Access"});
             };
         }else{
-            return res.status(200).redirect("http://192.168.0.12:81/");
+            return res.status(200).redirect("http://localhost:81/");
         };
     }else{
         

@@ -1,4 +1,19 @@
 
+function Message(Show) {
+    document.getElementById("Message_Box").style.display = "flex";
+    document.getElementById("Message_Text").innerHTML = Show;
+    document.getElementById("Message_Box").style.animationName = "Messag";
+    setTimeout(() => {
+        document.getElementById("Message_Box").style.animationName = "Message";        
+    }, 2000);
+    
+}
+
+
+
+// setTimeout(() => {
+//     document.getElementById("Message_Box").style.display = "none";
+// }, 1000);
 
 
 
@@ -41,30 +56,38 @@ function Sub(){
             document.getElementById("signupbtn").disabled = false;
             let OB = data.OBJ;
 
+            if (OB) {
+                
+            
 
-            if (OB.Name != 1) {
-                Name.innerHTML = OB.Name;
-                Name.style.visibility = "visible";
-            }
-            if (OB.Email != 1) {
-                Email.innerHTML = OB.Email;
-                Email.style.visibility = "visible";
-            }
-            if (OB.Mob != 1) {
-                Mobile.innerHTML = OB.Mob;
-                Mobile.style.visibility = "visible";
-            }
-            if (OB.Cre_Pass != 1) {
-                Create.innerHTML = OB.Cre_Pass;
-                Create.style.visibility = "visible";
-            }
-            if (OB.Con_Pass != 1) {
-                Confirm.innerHTML = OB.Con_Pass;
-                Confirm.style.visibility = "visible";
+
+                if (OB.Name != 1) {
+                    Name.innerHTML = OB.Name;
+                    Name.style.visibility = "visible";
+                }
+                if (OB.Email != 1) {
+                    Email.innerHTML = OB.Email;
+                    Email.style.visibility = "visible";
+                }
+                if (OB.Mob != 1) {
+                    Mobile.innerHTML = OB.Mob;
+                    Mobile.style.visibility = "visible";
+                }
+                if (OB.Cre_Pass != 1) {
+                    Create.innerHTML = OB.Cre_Pass;
+                    Create.style.visibility = "visible";
+                }
+                if (OB.Con_Pass != 1) {
+                    Confirm.innerHTML = OB.Con_Pass;
+                    Confirm.style.visibility = "visible";
+                }
+            }else if(data.Message == 'User already exist.') {
+                Message(data.Message);
             }
         }else{
             document.getElementById("signupbtn").disabled = false;
-            console.log(data.Message);
+            Message(data.Message);
+            // console.log(data.Message);
         }
     }).catch(e=>{
         console.log("ERROR...");
