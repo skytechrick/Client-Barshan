@@ -50,4 +50,8 @@ app.get("/",async(req, res)=>{
     res.status(200).send("Hi");
 });
 
+<<<<<<< Updated upstream
 app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://192.168.0.12:${process.env.Port}`)});
+=======
+app.listen(80,()=>{console.log(`Node JS runned successfully at http://192.168.0.44:${process.env.Port}`)});
+>>>>>>> Stashed changes
