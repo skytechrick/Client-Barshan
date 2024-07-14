@@ -26,6 +26,7 @@ const OTP_VERIF_Sign = require("./User_Signup/OTP_VERIF_Sign");
 const Get_Login = require("./User_Login/Get_Login");
 const Post_Login = require("./User_Login/Post_Login");
 
+const Dashboard_Product = require("./Dashboard_Product/Dashboard_Product.js");
 
 
 
@@ -37,13 +38,12 @@ app.post("/signup",Post_Signup_User)
 app.get("/signup/otp",Post_Signup_OTP_User);
 app.post("/signup/otp",OTP_VERIF_Sign);
 
-
-
 app.get("/login",Get_Login);
 app.post("/login",Post_Login);
 
 
 
+app.get("/Dashboard_Product",Dashboard_Product);
 
 
 app.get("/",async(req, res)=>{
