@@ -16,7 +16,7 @@ body {
     position: sticky;
     top: 0;
     background-color: var(--primary-color);
-    height: 60px;
+    /* height: 60px; */
     width: 100%;
     
 }
@@ -79,10 +79,11 @@ body {
 
 .Section1 {
     width: 100%;
+    /* margin-top: 60px; */
 }
 
 .Img {
-    background: url("/files/img/Change1.jpg");
+    background: url("/files/img/Change2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -154,9 +155,71 @@ body {
 }
 
 
+@media screen and (max-width: 780px) {
+    .cetn {
+        flex-direction: column;    
+        height: 30px;
+        
+    }
+    .Header {
+        height: 80px;
+        
+    }
+    .Righ {
+        flex-wrap: wrap;
+    }
+    .Righ div{
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+#Menus {
+    display: none;
+}
 
+@media screen and (max-width: 617px) {
+    #CatM {
+        display: none;
+    }
+}
 
-
+@media screen and (max-width: 530px) {
+    .Righ {
+        display: none;
+    }
+    .cetn {
+        width: 100%;
+    }
+    .head {
+        width: 100%;
+        display: flex;
+        
+    }
+    
+    #Menus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: 10px;
+        font-size: 21px;
+        border-radius: 50%;
+        background-color: #dfdfdf;
+        padding: 5px;
+        
+        
+    }
+    #Menus:hover {
+        background-color: #aaa;
+        display: none;
+    }
+    
+}
 
 
 

@@ -50,4 +50,4 @@ app.get("/",async(req, res)=>{
     res.status(200).send("Hi");
 });
 
-app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://localhost:${process.env.Port}`)});
+app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://192.168.0.12:${process.env.Port}`)});
