@@ -27,6 +27,7 @@ const Get_Login = require("./User_Login/Get_Login");
 const Post_Login = require("./User_Login/Post_Login");
 
 const Dashboard_Product = require("./Dashboard_Product/Dashboard_Product.js");
+const Dashboard_Product_Post = require("./Dashboard_Product/Dashboard_Product_Post.js");
 
 
 
@@ -43,15 +44,12 @@ app.post("/login",Post_Login);
 
 
 
-app.get("/Dashboard_Product",Dashboard_Product);
+app.get("/Dashboard_Product/add",Dashboard_Product);
+app.post("/Dashboard_Product/add",Dashboard_Product_Post);
 
 
-app.get("/",async(req, res)=>{
-    res.status(200).send("Hi");
+app.get("*",async(req, res)=>{
+    res.status(200).send("Page not Found");
 });
 
-<<<<<<< Updated upstream
-app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://192.168.0.12:${process.env.Port}`)});
-=======
 app.listen(80,()=>{console.log(`Node JS runned successfully at http://192.168.0.44:${process.env.Port}`)});
->>>>>>> Stashed changes

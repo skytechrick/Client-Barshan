@@ -15,6 +15,7 @@ body {
     box-shadow: 0 0 6px black;
     position: sticky;
     top: 0;
+    z-index: 1000;
     background-color: var(--primary-color);
     /* height: 60px; */
     width: 100%;
@@ -83,15 +84,18 @@ body {
 }
 
 .Img {
-    background: url("/files/img/Change2.jpg");
+    /* background: url("/files/img/Change1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     
-    background-attachment: fixed;
+    background-attachment: fixed; */
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     /* position: fixed;  */
+    /* position: relative;
+    top: 60px; */
+    
     z-index: 9;
 }
 
@@ -115,7 +119,7 @@ body {
 
 .Main_Cew {
     box-shadow: 0 0 10px #aaa;
-
+    flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
     width: 80%;
@@ -132,9 +136,12 @@ body {
     border-radius: 8px;
     width: 300px;
     height: 350px;
+    margin: 10px;
+    box-shadow: 0 0 10px #aaa;
 }
 
 .productStart img{
+    border-radius: 8px;
     width: 100%;
 }
 
@@ -154,6 +161,41 @@ body {
     /* text-shadow: 0 0 1px rgb(96, 255, 247); */
 }
 
+
+
+#MenuDIv {
+    display: none;
+}
+
+#UpDownDiv {
+    display: none;
+}
+@media screen and (max-width: 1000px) {
+    
+
+    .Main_Cew {
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .Main_Cew {
+        width: 90%;
+    }
+    .productStart {   
+        font-size: 18px;
+        width: 250px;
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 647px) {
+    .Main_Cew  {
+        justify-content: center;
+    }
+
+}
 
 @media screen and (max-width: 780px) {
     .cetn {
@@ -176,9 +218,6 @@ body {
     }
     
 }
-#Menus {
-    display: none;
-}
 
 @media screen and (max-width: 617px) {
     #CatM {
@@ -187,36 +226,98 @@ body {
 }
 
 @media screen and (max-width: 530px) {
-    .Righ {
-        display: none;
-    }
-    .cetn {
-        width: 100%;
-    }
-    .head {
-        width: 100%;
-        display: flex;
+    
+    .Header {
+        height: 60px;
         
     }
-    
-    #Menus {
+    .Righ {
+        position: absolute;
+        top: 60px;
+        flex-direction: column;
+        border-top: 1px solid black;
+        width: 100%;
+        background-color: #00b1dd;
+
+    }
+    .cetn {
+        position: relative;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    .head {
+        display: flex;
+
+        
+    }
+    #MenuDIv {
+        display: inline-block;
+        position: relative;
+        top: 0px;
+        position: relative;
+        right: 12px;
+    }
+
+    .H1 {
+        position: relative;
+        left: 12px;
+    }
+    #Menu {
+        color: white;
+        padding: 5px;
+    }
+    #Numbere {
+        position: absolute;
+        top: -2px;
+        left: 12px;
+        background-color: red;
+        font-size: 10px;
+        color: white;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 30px;
-        height: 30px;
-        position: relative;
-        top: 10px;
-        font-size: 21px;
-        border-radius: 50%;
-        background-color: #dfdfdf;
-        padding: 5px;
-        
-        
     }
-    #Menus:hover {
-        background-color: #aaa;
+    #UpDownDiv {
+        display: flex;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    #INNSTSTR1,
+    #INNSTSTR2,
+    #INNSTSTR3,
+    #INNSTSTR4,
+    #CatM,
+    #INNSTSTR6{
+        padding: 20px 0px;
         display: none;
+    }
+    #UpDown {
+        
+        width: 100%;
+        text-align: center;
+        padding: 4px;
+    }
+    
+    .Img {
+        position: relative;
+        top: 31px;
+    }
+    .main {
+        position: relative;
+        top: 31px;
+    }
+    footer {
+        margin-top: 31px;
+
+
     }
     
 }
@@ -225,6 +326,53 @@ body {
 
 
 
+footer {
+    width: 100%;
+    background-color: black;
+    color: white;
+    /* height: 60px; */
+    /* font-size: 14px; */
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+}
+
+.Fott {
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.Fo1 {
+    width: 300px;
+    /* height: 200px; */
+    margin-bottom: 20px;
+}
+
+.Fo1 center{
+    margin: 10px auto;
+    
+}
+
+.Fo1 center a{
+    color: white;
+    padding: 5px 20px;
+    text-decoration: none;    
+    transition: 300ms font-size;
+    font-weight: normal;
+    font-size: 15px;
+    /* height: 50px; */
+    display: block;
+}
+
+.Fo1 center a:hover{
+    color: aqua;
+    font-size: 17px;
+    text-decoration: underline;    
+}
 
 
 
@@ -232,10 +380,12 @@ body {
 
 
 
-
-
-
-
+@media screen and (max-width:770px) {
+    .Fott {
+        width: 100%;
+    }
+    
+}
 
 
 

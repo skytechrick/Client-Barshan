@@ -51,11 +51,7 @@ body {
     background: #f3f3f3;
     flex-direction: column;
     margin: 0;
-<<<<<<< Updated upstream
-    background-image: url("http://192.168.0.12/files/img/BacKc1.jpg");
-=======
     background-image: url("http://192.168.0.44/files/img/BacKc1.jpg");
->>>>>>> Stashed changes
     background-size: cover;
     background-repeat: 0;
     background-position: 0%;

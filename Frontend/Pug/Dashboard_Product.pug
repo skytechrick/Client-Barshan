@@ -8,11 +8,74 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini+Purva&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/files/css/Home.css">
+    <link rel="stylesheet" href="/files/css/Dashboard_Product.css">
     <link rel="shortcut icon" href="/files/img/Logo.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
 </head>
 <body>
+
+    <h1>ZIPBUY - Product Dashboard</h1>
+    <h3>Hello - Rick</h3>
+    <hr>
+    <form action="/dashboard_product/add" method="post">
+        <fieldset>
+            <legend> Add new product </legend>
+
+            <div class="C">
+                <div class="CC">
+                    <label for="Title">Title:</label>
+                    <input name="Title" type="text" id="Title" placeholder="Title" autocomplete="off" spellcheck="false" required autofocus>
+                </div>
+
+                <div class="CC">
+                    <label for="MRP">MRP:</label>
+                    <input name="MRP" type="number" id="MRP" placeholder="MRP" autocomplete="off" spellcheck="false" required>
+                </div>
+                <div class="CC">
+                    <label for="Selling_Price">Selling Price:</label>
+                    <input name="Selling_Price" type="number" id="Selling_Price" placeholder="Selling Price" autocomplete="off" spellcheck="false" required>
+                </div>
+                <div class="CC">
+                    <label for="Options">Options:</label>
+                    <input name="Options" type="text" id="Options" placeholder="Options" autocomplete="off" spellcheck="false" required>
+                </div>
+                <div class="CC">
+                    <label for="Description">Description:</label>
+                    <textarea name="Description" id="Description" placeholder="Description"></textarea>
+                </div>
+                <div class="CC">
+                    <label for="File_1">File 1:</label>
+                    <input name="File_1" type="file" id="File_1" autocomplete="off" spellcheck="false" required accept="image/webp">
+                </div>
+                <div class="CC">
+                    <label for="File_2">File 2:</label>
+                    <input name="File_2" type="file" id="File_2" autocomplete="off" spellcheck="false" accept="image/webp">
+                </div>
+                <div class="CC">
+                    <label for="File_3">File 3:</label>
+                    <input name="File_3" type="file" id="File_3" autocomplete="off" spellcheck="false" accept="image/webp">
+                </div>
+                <div class="CC">
+                    <label for="File_4">File 4:</label>
+                    <input name="File_4" type="file" id="File_4" autocomplete="off" spellcheck="false" accept="image/webp">
+                </div>
+                <div class="CC">
+                    <label for="File_5">File 5:</label>
+                    <input name="File_5" type="file" id="File_5" autocomplete="off" spellcheck="false" accept="image/webp">
+                </div>
+
+                <hr><hr>
+                <button style="cursor: pointer; " type="submit">Submit</button>
+
+            </div>
+        </fieldset>
+
+    </form>
+
+
+    
 
     
 
