@@ -13,37 +13,67 @@ const add_to_cart = async (req, res) =>{
         let AllProducts = await Products.find({});
         let H = 2;
         let element;
+        let lett = "";
         for (let i = 0; i < AllProducts.length; i++) {
             element = AllProducts[i];
             let P_ID = req.body.ID;
             if (element._id == P_ID) {
+                lett = element.Category;
                 H = 1;   
                 break;
             }
             
         }
         if(H == 1){
-            // console.log(Auths);
+            
+            if (lett == "Back Cover Collection") {
+                            
 
-            let a = Auths.Cart;
-            if (a.length <1) {
-                a =[{ID:element._id, Option:""}];
+                // console.log(Auths);
+
+                let a = Auths.Cart;
+                if (a.length <1) {
+                    a =[{ID:element._id, Option:"", Model:"",Skin:""}];
+                    
+                }else{
+                    // a.push({ID:element._id})
+                    a.push({ID:element._id, Option:"", Model:"",Skin:""})
+                }
                 
+                
+
+                await User_Profile.updateOne({_id:Auths._id},{$set:{
+                    Cart:a,
+                }}).then(()=>{
+                    res.status(200).json({Success:1});
+                }).catch(e=>{
+                    res.status(200).json({Success:0});
+                    
+                });
             }else{
-                // a.push({ID:element._id})
-                a.push({ID:element._id, Option:""})
-            }
-            
-            
+                // console.log(Auths);
 
-            await User_Profile.updateOne({_id:Auths._id},{$set:{
-                Cart:a,
-            }}).then(()=>{
-                res.status(200).json({Success:1});
-            }).catch(e=>{
-                res.status(200).json({Success:0});
+                let a = Auths.Cart;
+                if (a.length <1) {
+                    a =[{ID:element._id, Option:""}];
+                    
+                }else{
+                    // a.push({ID:element._id})
+                    a.push({ID:element._id, Option:""})
+                }
                 
-            });
+                
+
+                await User_Profile.updateOne({_id:Auths._id},{$set:{
+                    Cart:a,
+                }}).then(()=>{
+                    res.status(200).json({Success:1});
+                }).catch(e=>{
+                    res.status(200).json({Success:0});
+                    
+                });
+
+            }
         }else{
             res.status(200).json({Success:0});
         }

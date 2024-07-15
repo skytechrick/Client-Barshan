@@ -121,12 +121,20 @@
 }
 
 .Option_Selected {
-    width: 100px;
+    width: 130px;
     text-align: center;
     cursor: pointer;
+    padding: 4px 7px;
+    
+}
+.Option_Selected {
+    padding: 4px 0px;
 
 }
 
+.sfdassafsaaf {
+    margin-top: 5px;
+}
 
 .Updatea {
     display: none;
@@ -226,7 +234,13 @@
 
 
 
+.delete_cartdsadasd {
+    display: none;
+}
 
+.Update_Skin {
+    display: none;
+}
 
 
 

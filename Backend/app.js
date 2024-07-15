@@ -36,6 +36,8 @@ const Cart_Get = require("./Order_Cart/Cart_Get.js");
 const Cart_Update = require("./Order_Cart/Cart_Update.js");
 const check_out = require("./Order_Cart/check_out.js");
 
+const Profile_Page = require("./Order_Cart/Profile_Page.js");
+const Profile_Update = require("./Order_Cart/Profile_Update.js");
 
 
 const MensWear_First = require("./Cat/MensWear_First.js");
@@ -69,7 +71,13 @@ app.get("/product/back_cover_collections",Covers_First);
 app.post("/add-to-cart",add_to_cart);
 app.get("/cart",Cart_Get);
 app.put("/cart/update", Cart_Update);
-app.post("/check_out", check_out);
+app.get("/check_out", check_out);
+
+app.get("/profile",Profile_Page);
+app.put("/profile/update", Profile_Update);
+
+
+
 
 app.get("/products/:URL", Products_Page);
 

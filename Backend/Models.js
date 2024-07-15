@@ -20,8 +20,9 @@ let database = {
     Password:{type:String},
     Auth:{type:Object}, 
     Verified:{type:String},
+    Cart:{type:Object},
     Ban:{type:String},
-    Cart:{type:Object},   
+    Address:{type:Object},
 }
 let d = {
     

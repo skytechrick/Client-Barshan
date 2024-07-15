@@ -11,9 +11,9 @@ function Message(Show) {
 }
 
 
-document.getElementById("Option_Selected").addEventListener('change', ()=>{
-    document.getElementById("Update").style.display = "inline-block";
-});
+// document.getElementById("Option_Selected").addEventListener('change', ()=>{
+//     document.getElementById("Update").style.display = "inline-block";
+// });
 
 
 function Update(n, x){
@@ -66,3 +66,5 @@ function delete_cart(n,x){
     });
 
 }
+
+

@@ -98,16 +98,124 @@ const Cart_Update = async(req, res) =>{
                 res.status(200).json({Success:"Product not found."});
             }
             
+        }else if(req.body.Type == 'Model'){
+
+
+
+            let ID = req.body.ID;
+            let dd = await Products.find({});
+
+            let element1;
+            let kl = 0;
+            for (let l = 0; l < dd.length; l++) {
+                element1 = dd[l];
+                if (element1._id == ID) {
+                    kl = 1;
+                    break;
+                    
+                }
+                
+            }
+            if (kl == 1) {
+                let Cart = Auths.Cart;
+                let TY=[];
+                for (let q = 0; q < Cart.length; q++) {
+                    const element = Cart[q];
+                    if (ID == element.ID) {
+                        TY.push({
+                            ID:element.ID,
+                            Model:req.body.Model,
+                            Skin:element.Skin,
+                            Option:element.Option,
+                        });
+
+                        
+                        
+                    }else{
+                        TY.push(element);
+                    }
+                    
+                }
+                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+
+                    res.status(200).json({Success:"Cart Updated successfully."});
+                }).catch(()=>{
+                    
+                    res.status(200).json({Success:"Server Error."});
+                })
+
+                
+            }else{
+                res.status(200).json({Success:"Product not found."});
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        }else if(req.body.Type == 'Skin'){
+
+
+
+            let ID = req.body.ID;
+            let dd = await Products.find({});
+
+            let element1;
+            let kl = 0;
+            for (let l = 0; l < dd.length; l++) {
+                element1 = dd[l];
+                if (element1._id == ID) {
+                    kl = 1;
+                    break;
+                    
+                }
+                
+            }
+            if (kl == 1) {
+                let Cart = Auths.Cart;
+                let TY=[];
+                for (let q = 0; q < Cart.length; q++) {
+                    const element = Cart[q];
+                    if (ID == element.ID) {
+                        TY.push({
+                            ID:element.ID,
+                            Model:element.Model,
+                            Skin:req.body.Skin,
+                            Option:element.Option,
+                        });
+
+                        
+                        
+                    }else{
+                        TY.push(element);
+                    }
+                    
+                }
+                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+
+                    res.status(200).json({Success:"Cart Updated successfully."});
+                }).catch(()=>{
+                    
+                    res.status(200).json({Success:"Server Error."});
+                })
+
+                
+            }else{
+                res.status(200).json({Success:"Product not found."});
+            }
         }
         
     }else{ 
         res.cookie("ID");
         res.status(200).json({Success:"1"});
-        // res.status(200).redirect("/login");
     }
-
-
-
-
 }
 module.exports = Cart_Update;
