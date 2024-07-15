@@ -32,12 +32,19 @@ const Dashboard_Product_Post = require("./Dashboard_Product/Dashboard_Product_Po
 
 
 const add_to_cart = require("./Order_Cart/add_to_cart.js");
+const Cart_Get = require("./Order_Cart/Cart_Get.js");
+const Cart_Update = require("./Order_Cart/Cart_Update.js");
+const check_out = require("./Order_Cart/check_out.js");
 
 
 
 const MensWear_First = require("./Cat/MensWear_First.js");
 const WomensWear_First = require("./Cat/WomensWear_First.js");
+const Hand_Printed_Collection_First = require("./Cat/Hand_Printed_Collection_First.js");
+const Trending_Collection_First = require("./Cat/Trending_Collection_First.js");
+const Covers_First = require("./Cat/Covers_First.js");
 
+const Products_Page = require("./Products_Page.js");
 
 
 
@@ -54,7 +61,17 @@ app.post("/login",Post_Login);
 
 app.get("/product/menswear",MensWear_First);
 app.get("/product/womenswear",WomensWear_First);
+app.get("/product/hand_printed_collections",Hand_Printed_Collection_First);
+app.get("/product/trending_collections",Trending_Collection_First);
+app.get("/product/back_cover_collections",Covers_First);
 
+
+app.post("/add-to-cart",add_to_cart);
+app.get("/cart",Cart_Get);
+app.put("/cart/update", Cart_Update);
+app.post("/check_out", check_out);
+
+app.get("/products/:URL", Products_Page);
 
 
 
@@ -78,11 +95,9 @@ const uploadMiddleware1 = Photo_Upload.fields([
     { name: 'File_5', maxCount: 1 }
 ]);
 
-app.get("/Dashboard_Product/add",Dashboard_Product);
+app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
 app.post("/Dashboard_Product/add",uploadMiddleware1,Dashboard_Product_Post);
 
-
-app.post("/add-to-cart",add_to_cart);
 
 
 app.get("*",async(req, res)=>{

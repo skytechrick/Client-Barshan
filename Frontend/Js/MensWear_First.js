@@ -27,7 +27,7 @@ function Add_to_Cart(n) {
         }
     }).catch(e=>{
         console.log("Error.."+e);
-    })
+    })  
 }
 function Buy_Now(n) {
 

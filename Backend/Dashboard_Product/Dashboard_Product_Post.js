@@ -117,7 +117,7 @@ const Dashboard_Product_Post = async(req, res)=>{
         // console.log(a)
         let s = new Products(a);
         await s.save().then(()=>{
-            res.status(200).redirect('/dashboard_product/add');
+            res.status(200).redirect('/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl');
         })
 
     }else{

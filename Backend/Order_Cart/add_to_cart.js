@@ -23,14 +23,15 @@ const add_to_cart = async (req, res) =>{
             
         }
         if(H == 1){
-            console.log(Auths);
+            // console.log(Auths);
 
             let a = Auths.Cart;
             if (a.length <1) {
-                a =[{ID:element._id}];
+                a =[{ID:element._id, Option:""}];
                 
             }else{
-                a.push({ID:element._id})
+                // a.push({ID:element._id})
+                a.push({ID:element._id, Option:""})
             }
             
             

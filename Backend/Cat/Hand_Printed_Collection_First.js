@@ -4,14 +4,14 @@ const NumINR = require("../Mod/NumINR.js");
 
 const {Products} =  require("../Models.js");
 
-const WomensWear_First = async (req, res) => {
+const Hand_Printed_Collection_First = async (req, res) => {
     
 
     let All = await Products.find({});
     let fin = "";
     for (let i = 0; i < All.length; i++) {
         const element = All[i];
-        if(element.Category == "Womens Wear"){
+        if(element.Category == "Hand Printed Collection"){
 
         
         
@@ -50,4 +50,4 @@ const WomensWear_First = async (req, res) => {
     res.status(200).render("WomensWear_First",{P:fin});
 
 }
-module.exports = WomensWear_First;
+module.exports = Hand_Printed_Collection_First;

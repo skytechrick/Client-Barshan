@@ -1,17 +1,17 @@
 
-
 const NumINR = require("../Mod/NumINR.js");
 
 const {Products} =  require("../Models.js");
 
-const WomensWear_First = async (req, res) => {
-    
+
+const Covers_First = async (req, res) => {
+
 
     let All = await Products.find({});
     let fin = "";
     for (let i = 0; i < All.length; i++) {
         const element = All[i];
-        if(element.Category == "Womens Wear"){
+        if(element.Category == "Back Cover Collection"){
 
         
         
@@ -47,7 +47,7 @@ const WomensWear_First = async (req, res) => {
             fin+=data;
         }
     };
-    res.status(200).render("WomensWear_First",{P:fin});
-
+    res.status(200).render("back_cover_collections",{P:fin});
+    // Mens_collection_Img.jpg
 }
-module.exports = WomensWear_First;
+module.exports = Covers_First;
