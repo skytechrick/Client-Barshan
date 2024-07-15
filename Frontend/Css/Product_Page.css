@@ -2,6 +2,45 @@
     --primary-color: #00b1dd;
 }
 
+
+@keyframes Message {
+
+    0% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+
+    }
+    
+}
+#Message_Box {
+
+    background-color: rgba(152, 152, 152, 0.397);
+    z-index: 10000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation-name: a;
+    animation-duration: 1s;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+
+}
+
+#Message_Text {
+    padding: 7px 13px;
+    color: white;
+    background-color: rgb(82, 82, 82);
+    border: 1px solid rgb(161, 161, 161);
+}
+
 body {
     margin: 0;
     padding: 0;
