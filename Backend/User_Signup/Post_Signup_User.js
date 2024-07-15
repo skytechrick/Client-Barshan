@@ -206,6 +206,7 @@ const Post_Signup_User = async(req,res)=>{
                             },
                             Ban:"No",
                             Verified:"No",
+                            Cart:[],
                             
                         }
                         

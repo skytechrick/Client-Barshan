@@ -21,13 +21,30 @@ let database = {
     Auth:{type:Object}, 
     Verified:{type:String},
     Ban:{type:String},
+    Cart:{type:Object},   
+}
+let d = {
     
+    _id:{type:String},
+    URL:{type:String},
+    Category:{type:String},
+    Title:{type:String},
+    MRP:{type:String},
+    Selling_Price:{type:String},
+    Option:{type:Object},
+    Description:{type:String},
+    Images:{type:Object},
+    Orders_IDs:{type:Object},
+    Instock:{type:String},
 }
 
-
 const database1 = new mongoose.Schema(database);
+const database2 = new mongoose.Schema(d);
 const User_ID = mongoose.model("User", database1);
+const P = mongoose.model("Products", database2);
 
 module.exports = {
     User_Profile: User_ID,
+    Products:P,
+
 }

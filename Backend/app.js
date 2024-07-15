@@ -31,6 +31,16 @@ const Dashboard_Product_Post = require("./Dashboard_Product/Dashboard_Product_Po
 
 
 
+const add_to_cart = require("./Order_Cart/add_to_cart.js");
+
+
+
+const MensWear_First = require("./Cat/MensWear_First.js");
+const WomensWear_First = require("./Cat/WomensWear_First.js");
+
+
+
+
 app.get("/",Home)
 
 
@@ -42,10 +52,37 @@ app.post("/signup/otp",OTP_VERIF_Sign);
 app.get("/login",Get_Login);
 app.post("/login",Post_Login);
 
+app.get("/product/menswear",MensWear_First);
+app.get("/product/womenswear",WomensWear_First);
 
+
+
+
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../Frontend/Product_Img'));
+    },
+    filename: (req, file, cb) => {
+        cb(null,  Date.now() +  "_" + file.fieldname + '_'  + file.originalname);
+    }
+});
+const Photo_Upload = multer({ storage: storage });
+
+const uploadMiddleware1 = Photo_Upload.fields([
+    { name: 'File_1', maxCount: 1 },
+    { name: 'File_2', maxCount: 1 },
+    { name: 'File_3', maxCount: 1 },
+    { name: 'File_4', maxCount: 1 },
+    { name: 'File_5', maxCount: 1 }
+]);
 
 app.get("/Dashboard_Product/add",Dashboard_Product);
-app.post("/Dashboard_Product/add",Dashboard_Product_Post);
+app.post("/Dashboard_Product/add",uploadMiddleware1,Dashboard_Product_Post);
+
+
+app.post("/add-to-cart",add_to_cart);
 
 
 app.get("*",async(req, res)=>{

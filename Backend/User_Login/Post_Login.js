@@ -102,7 +102,7 @@ const Post_Login = async(req, res) =>{
                             
                                 let Xa = Auth_Token(31);
                                 let a = {
-                                    Profile_ID:D._id,
+                                    Profile_ID: d._id,
                                     Auth_ID: Xa,
                                 }
                                 await User_Profile.updateOne({_id:d._id},{$set:{Logs:Xa}}).then(()=>{

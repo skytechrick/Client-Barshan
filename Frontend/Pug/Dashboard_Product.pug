@@ -17,13 +17,23 @@
 <body>
 
     <h1>ZIPBUY - Product Dashboard</h1>
-    <h3>Hello - Rick</h3>
     <hr>
-    <form action="/dashboard_product/add" method="post">
+    <form action="/dashboard_product/add" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend> Add new product </legend>
 
             <div class="C">
+                <div class="CC">
+                    <label for="Category">Category:</label>
+                    <select name="Category" id="Category">
+                        <option value="">-- Select Option --</option>
+                        <option value="Mens Wear">Mens Wear</option>
+                        <option value="Womens Wear">Womens Wear</option>
+                        <option value="Hand Printed Collection">Hand Printed Collection</option>
+                        <option value="Trending Collection">Trending Collection</option>
+                        <option value="Back Cover Collection">Back Cover Collection</option>
+                    </select>
+                </div>
                 <div class="CC">
                     <label for="Title">Title:</label>
                     <input name="Title" type="text" id="Title" placeholder="Title" autocomplete="off" spellcheck="false" required autofocus>
@@ -40,6 +50,10 @@
                 <div class="CC">
                     <label for="Options">Options:</label>
                     <input name="Options" type="text" id="Options" placeholder="Options" autocomplete="off" spellcheck="false" required>
+                </div>
+                <div class="CC">
+                    <label for="Quantity">Quantity:</label>
+                    <input name="Quantity" type="text" id="Quantity" placeholder="Quantity" autocomplete="off" spellcheck="false" required>
                 </div>
                 <div class="CC">
                     <label for="Description">Description:</label>
