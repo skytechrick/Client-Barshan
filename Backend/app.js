@@ -109,8 +109,12 @@ const uploadMiddleware1 = Photo_Upload.fields([
 
 app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
 
-app.get("/Dashboard_Product/Order",require("./Dashboard_Order/Dashboard_Order.js"));
-app.get("/Dashboard_Product/Order/Search",require("./Dashboard_Order/Dashboard_OrderSearch.js"));
+
+
+app.get("/Dashboard_Product/Ordersafsdfgedtffgikhweopfhe324idsgfdsgfjkdsfgdsuigfdsgoriy384ty8dfgfdgdfgfd",require("./Dashboard_Order/Dashboard_Order.js"));
+app.get("/Dashboard_Product/safsfsddfdsfdfsgdjkfgdhfjsdkfdsgfdgsfdsjhfdsfdsgfdsgfdgsfd7sftdsf8dsftsdfsdo89fydsfsd8fdOrder/Search",require("./Dashboard_Order/Dashboard_OrderSearch.js"));
+app.post("/Dashbord/order/update",require("./Dashboard_Order/Dashboard_OrderSearch_Update.js"));
+
 
 
 app.get("*",async(req, res)=>{
