@@ -12,6 +12,7 @@ function Message(Show) {
 
 function Address_Btn() {
     let A = document.getElementById("Address").value;
+    let B = document.getElementById("PIN").value;
     
     const htmlText = A.replace(/\r\n|\r|\n/g, '<br>');
 
@@ -19,7 +20,7 @@ function Address_Btn() {
     fetch("/profile/update",{
         method:"PUT",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({Address:htmlText}),
+        body:JSON.stringify({Address:htmlText, PIN:B}),
     }).then(response=>{return response.json();}).then(data=>{
         console.log(data.Success);
         if (data.Success == "1") {

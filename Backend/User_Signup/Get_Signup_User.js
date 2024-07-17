@@ -16,10 +16,10 @@ const Get_Signup_User = async(req, res) => {
             res.status(200).render("Signup");
         
         }else{
-            res.status(200).redirect("http://192.168.0.44/");
+            res.status(200).redirect("http://lznqxtn8-80.inc1.devtunnels.ms/");
         }
     }else{
-        res.status(200).redirect("http://192.168.0.44/");
+        res.status(200).redirect("http://lznqxtn8-80.inc1.devtunnels.ms/");
     }
     
 

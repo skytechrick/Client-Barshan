@@ -134,3 +134,17 @@
 #Address_Btn:hover {
     background-color: rgb(66, 186, 255);
 }
+
+
+@media screen and (max-width:550px) {
+    .BOXXX table tr td {
+        padding: 6px 5px;
+        font-size: 14px;
+    }
+    .mainsd {
+        width: 95%;
+    }
+    #DDD {
+        width: 200px;
+    }
+}

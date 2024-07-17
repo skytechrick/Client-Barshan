@@ -611,6 +611,9 @@ main {
 
 
 @media screen and (max-width: 1250px) {
+    .Section_1 {
+        justify-content: space-between;
+    }
     .ImageSection {
         width: 500px;
     }
@@ -635,12 +638,25 @@ main {
     #DescSection{
         width: 100%;
     }
-
+    
     
 }
 
 
 
+@media screen and (max-width: 440px) {
+    
+    .IMG_BTN{
+        
+        height: 60px;
+    }
+    .P_LIST {
+        height: 100%;
+    }
+    .DescSection {
+        padding-top: 0px;
+    }
+}
 
 
 

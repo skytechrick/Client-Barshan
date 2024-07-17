@@ -27,10 +27,10 @@
                 
             </div>
             <div id="MenuDIv">
-                <div id="Menu" class="material-symbols-outlined">shopping_cart</div>
-                <div id="Numbere">0
-
-                </div>
+                <a href="/cart">
+                    <div id="Menu" class="material-symbols-outlined">shopping_cart</div>
+                </a>
+                 
 
             </div>
             <div class="Righ">
@@ -43,11 +43,12 @@
                 <div id="INNSTSTR3">
                     <a href="/product/back_cover_collections">Skins</a>
                 </div>
+                 
                 <div id="INNSTSTR4">
                     <a href="/">Catogeries</a>
                 </div>
                 <div id="CatM">
-                    <a href="/more">More</a>
+                    <a href="/order">Order</a>
                 </div>
                 <div id="INNSTSTR6">
                     <a href="/cart">Cart</a>
@@ -70,19 +71,25 @@
                     <table>
                         <tr>
                             <td>Name:</td>
-                            <td>Rick Sarkar</td>
+                            <td>#{Name}</td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td>ricksarkar2005@gmail.com</td>
+                            <td>#{Email}</td>
                         </tr>
                         <tr>
                             <td>Mobile Number:</td>
-                            <td>+91 8436431656</td>
+                            <td>+91 #{Mob}</td>
+                        </tr>
+                        <tr>
+                            <td>PIN</td>
+                            <td style=" width: 100px; display: flex; flex-direction: column;">
+                                <input value="#{PIN}" type="text" maxlength="6" placeholder="Enter Pin" style="outline: none; padding: 6px 10px;" id="PIN" >
+                            </td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td style="display: flex; flex-direction: column;">
+                            <td id="DDD" style="display: flex; flex-direction: column;">
                                 <textarea value="" placeholder="Add Address" id="Address" style="font-family: Arial, Helvetica, sans-serif;" cols="30" rows="8">#{Assd}</textarea>
                                 <button onclick="Address_Btn();" id="Address_Btn">Update</button>
                             </td>

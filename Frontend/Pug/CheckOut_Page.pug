@@ -11,15 +11,11 @@
     <link rel="shortcut icon" href="/files/img/Logo.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/files/css/Home.css">
-    <link rel="stylesheet" href="/files/css/Cart_Page.css">
+    <link rel="stylesheet" href="/files/css/CheckOut_Page.css">
 </head>
 <body>
 
     
-    <div id="Background">
-        <img src="/files/img/Tick.png" alt="Cart_Confirmatim Image">
-        <h3>Added to cart</h3>
-    </div>
     <div id="Message_Box">
         <div id="Message_Text">No message yet</div>            
     </div>
@@ -32,10 +28,10 @@
                 
             </div>
             <div id="MenuDIv">
-                <div id="Menu" class="material-symbols-outlined">shopping_cart</div>
-                <div id="Numbere">0
-
-                </div>
+                <a href="/cart">
+                    <div id="Menu" class="material-symbols-outlined">shopping_cart</div>
+                </a>
+                 
 
             </div>
             <div class="Righ">
@@ -48,11 +44,12 @@
                 <div id="INNSTSTR3">
                     <a href="/product/back_cover_collections">Skins</a>
                 </div>
+                 
                 <div id="INNSTSTR4">
                     <a href="/">Catogeries</a>
                 </div>
                 <div id="CatM">
-                    <a href="/more">More</a>
+                    <a href="/order">Order</a>
                 </div>
                 <div id="INNSTSTR6">
                     <a href="/cart">Cart</a>
@@ -73,42 +70,85 @@
             <h1><a href="/cart">Shopping Cart</a></h1>
 
         </div>
-        <div class="CartList">
 
 
-            <!-- <div class="Prod">
-                <div class="Side1">
-                    <a href="/products/">
-                        <img src="/files/img/Cat1.webp" alt="Product Image"></div>
-                    </a>
-                <div class="Side2">
-                    <h1>
-                        <a href="/products/">Samsung S50pro | 4500MP Camera</a>
-                    </h1>
-                    <div class="Pricing">
-                        <div class="MRPPPP">MRP: Rs.12,999</div>
-                        <div class="Sellings">Rs.12,534</div>
-                    </div>
-                    <div>
-                        <label for="Option_Selected">Option:</label>
-                        <select name="Option_Selected" id="Option_Selected">
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="X">X</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                            <option value="XXXL">XXXL</option>
-                        </select>
-                        <button id="Update" onclick="Update('342442342');" type="button">Update</button>
-                    </div>
-                    <div>
-                        <button id="delete_cart" onclick="delete_cart();" type="button">Remove</button>
-                    </div>
-                </div>
+        <div class="cff">
+            <h2>1. Address <a href="/profile">(Change address)</a></h2>
+            <div id="Addresss">
+                <address>
+                | !{Address}
+                | #{PIN}
+                </address>
                 
-            </div> -->
+            </div>
+            <h2>2. Payment Method </h2>
+            <div id="Paymemt_Method">
+                <input type="radio" name="4523" class="PayOnline" id="PayOnline1"><label class="PayOnlinea" for="PayOnline1">Pay Online (Net Banking / UPI)</label>
+                <br>
+                <input type="radio" name="4523" class="PayOnline" id="PayOnline2"><label class="PayOnlinea" for="PayOnline2">Pay on Delivery (POD)</label>
+                
+            </div>
+            <h2>3. Products <a href="/cart">(Go to cart)</a> </h2>
+            <div id="Products_LIST">
+                <table>
+                    <thead>
 
+                        <tr class="Headddd">
+                            <th>Product Title</th>
+                            <th>Option</th>
+                            <th>Price</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody class="Pro_Main_List">
+                       |  !{Product}
+                    </tbody>
+                    <tfoot>
+                        <tr class="BOOT">
+                            <td colspan="2">Subtotal:</td>
+                            <td colspan="1">Rs. #{Grand_TOTAL}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+
+            
+            <h2>4. Billing </h2>
+            <div id="Billing">
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td class="Left">MRP:</td>
+                            <td class="right">Rs. #{MRP}</td>
+                        </tr>
+                        <tr>
+                            <td class="Left">Total discount:</td>
+                            <td class="right">- Rs. #{Discount}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="Left">Delivery Charge:</td>
+                            <td class="right" style="color: green;">FREE</td>
+                            
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td>Grand total:</td>
+                            <td>Rs. #{Grand_TOTAL}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div id="Final_BTN">
+            </div>
+        </div>
+
+
+        <div class="CartList">
             | !{Products}
 
 
@@ -121,8 +161,8 @@
     </section>
     
     <script src="/files/js/Home.js"></script>
-    <script src="/files/js/Cart_Page.js"></script>
-    <script src="/files/js/Mobiles.js"></script>
+    <script src="/files/js/CheckOut_Page.js"></script>
+    <!-- <script src="/files/js/Mobiles.js"></script> -->
 
 </body>
 </html>

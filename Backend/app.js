@@ -73,6 +73,10 @@ app.get("/cart",Cart_Get);
 app.put("/cart/update", Cart_Update);
 app.get("/check_out", check_out);
 
+app.get("/order", require("./Order_Cart/Order_Page.js"));
+app.put("/order", require("./Order_Cart/Placed_Order"));
+
+
 app.get("/profile",Profile_Page);
 app.put("/profile/update", Profile_Update);
 
@@ -104,12 +108,13 @@ const uploadMiddleware1 = Photo_Upload.fields([
 ]);
 
 app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
-app.post("/Dashboard_Product/add",uploadMiddleware1,Dashboard_Product_Post);
 
+app.get("/Dashboard_Product/Order",require("./Dashboard_Order/Dashboard_Order.js"));
+app.get("/Dashboard_Product/Order/Search",require("./Dashboard_Order/Dashboard_OrderSearch.js"));
 
 
 app.get("*",async(req, res)=>{
     res.status(200).send("Page not Found");
 });
 
-app.listen(80,()=>{console.log(`Node JS runned successfully at http://192.168.0.44:${process.env.Port}`)});
+app.listen(80,()=>{console.log(`Node JS runned successfully at http://lznqxtn8-80.inc1.devtunnels.ms:${process.env.Port}`)});

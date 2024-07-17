@@ -1,0 +1,249 @@
+
+
+@keyframes Message {
+
+    0% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        display: none;
+
+    }
+    
+}
+#Message_Box {
+
+    background-color: rgba(152, 152, 152, 0.397);
+    z-index: 10000;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation-name: a;
+    animation-duration: 1s;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
+
+}
+
+#Message_Text {
+    padding: 7px 13px;
+    color: white;
+    background-color: rgb(82, 82, 82);
+    border: 1px solid rgb(161, 161, 161);
+}
+
+.Sect1 {
+    width: 90%;
+    margin: 50px auto;
+}
+
+.CartT {
+    border-bottom: 1px solid #aaa;
+}
+
+
+
+
+
+#Addresss {
+    display: block;
+    
+}
+#Addresss address{
+    margin-left: 25px;
+    
+}
+
+#Paymemt_Method {
+    margin-left: 25px;
+}
+#Paymemt_Method input{
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+.PayOnline {
+    
+    margin: 10px;
+}
+
+.PayOnlinea{
+    cursor: pointer;
+    
+}
+
+
+#Products_LIST {
+    margin-left: 25px;
+    
+}
+#Products_LIST table{
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    width: calc(100% - 20px);
+}
+
+.Headddd {
+    font-size: 17px;
+}
+#Products_LIST table thead{
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+}
+#Products_LIST table tfoot{
+    border-top: 1px solid #aaa;
+    
+}
+#Products_LIST table tfoot tr td{
+    padding: 8px;
+
+}
+
+.Headddd th{
+    padding: 8px;
+    text-align: center;
+    /* width: 30%; */
+    
+}
+.Pro_Main_List td{
+    text-align: center;
+    /* width: 30%; */
+    padding: 8px;
+    
+}
+.BOOT td{
+    font-weight: bold;
+    text-align: center;
+    padding: 8px;
+
+}
+
+
+/* .Pro_Main_List {
+
+} */
+
+#Billing {
+    margin-left: 25px;
+}
+
+#Billing table {
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+}
+#Billing table tfoot tr{
+    border-top: 1px solid #aaa;
+
+}
+#Billing table td{
+    padding: 6px 10px;
+}
+
+
+.Left{
+    text-align: right;
+    padding: 6px 15px;
+}
+.right{
+    text-align: left;
+    padding: 6px 15px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 520px) {
+    .cff {
+        font-size: 14px;
+        width: 100%;
+    }
+    .Sect1 {
+        width: 100%;
+        padding-left: 14px;
+        
+    }
+    
+    .cff h2{
+        font-size: 18px;
+        
+    }
+    .Headddd {
+        font-size: 15px;
+    }
+    
+    #Billing table{
+        /* display: block; */
+        margin: auto;
+
+    }
+    #Products_LIST {
+        margin-left: 10px;
+    }
+}
+
+
+#Final_BTN {
+    display: block;
+    margin: 10px auto;
+}
+
+#Final_BTNN {
+    padding: 7px 13px;
+    outline: none;
+    display: block;
+    margin: auto;
+    border: none;
+    transition: 200ms background-color;
+    cursor: pointer;
+    width: 200px;
+    font-size: 18px;
+    color: white;
+    text-shadow: 0 0 10px black;
+    background-color: rgb(109, 189, 255);
+}
+#Final_BTNN:hover {
+    padding: 7px 13px;
+    background-color: rgb(66, 170, 255);
+}
+#Final_BTNN:active {
+    padding: 7px 13px;
+    background-color: rgb(50, 163, 255);
+}
+#Final_BTNN:active {
+    padding: 7px 13px;
+    background-color: rgb(109, 189, 255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -31,10 +31,10 @@ const Hand_Printed_Collection_First = async (req, res) => {
                     <h2 class="P_Title">
                         <a href="/products/${Product_Url}"><center>${Title}</center></a>
                     </h2>
-                    <div class="price kl">
+                    <div class="price kl TYTYT">
                         <div>MRP: ${MRP}</div>
                     </div>
-                    <div class="price">
+                    <div class="price TYTYT" >
                         <div>Rs. ${Sell}</div>
                     </div>
                     <div class="price">

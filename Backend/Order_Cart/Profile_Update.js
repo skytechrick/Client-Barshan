@@ -15,7 +15,8 @@ const Profile_Update = async(req, res)=>{
     if (Auths != null) {
         // console.log(req.body);
         let a = req.body.Address;
-        await User_Profile.updateOne({_id:Auths._id}, {$set:{Address:a}});
+        let PIN = req.body.PIN;
+        await User_Profile.updateOne({_id:Auths._id}, {$set:{Address:a, PIN:PIN}});
         res.status(200).json({Success:"Edited Successfully."});
     }else{ 
         res.cookie("ID");

@@ -162,7 +162,7 @@ body {
     box-shadow: 0 0 10px #aaa;
     flex-wrap: wrap;
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 80%;
     margin: auto;
@@ -478,14 +478,42 @@ footer {
     .Fott {
         width: 100%;
     }
-    
+    .Main_Cew {
+        justify-content: space-between;
+    }
 }
 
 
 
+@media screen and (max-width: 647px) {
+    .productStart {
+        margin: 4px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .Main_Cew {
+        width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+    .productStart {
+        width: calc((100% - 20px)/2);
+        margin: 4px;
+    }
+    .Maisnsdasd {
+        margin-bottom: 0px;
+    }
+    .P_Title {
+        font-size: 14px;
+    }
+}
 
 
-
+@media screen and (max-width: 400px) {
+    .ADDTOCART {
+        width: calc(100% - 15px);
+    }
+}
 
 
 

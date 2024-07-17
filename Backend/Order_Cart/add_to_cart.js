@@ -33,11 +33,11 @@ const add_to_cart = async (req, res) =>{
 
                 let a = Auths.Cart;
                 if (a.length <1) {
-                    a =[{ID:element._id, Option:"", Model:"",Skin:""}];
+                    a =[{ID:element._id, Option:"-", Model:"-",Skin:"-"}];
                     
                 }else{
                     // a.push({ID:element._id})
-                    a.push({ID:element._id, Option:"", Model:"",Skin:""})
+                    a.push({ID:element._id, Option:"-", Model:"-",Skin:"-"})
                 }
                 
                 
@@ -55,11 +55,11 @@ const add_to_cart = async (req, res) =>{
 
                 let a = Auths.Cart;
                 if (a.length <1) {
-                    a =[{ID:element._id, Option:""}];
+                    a =[{ID:element._id, Option:"-"}];
                     
                 }else{
                     // a.push({ID:element._id})
-                    a.push({ID:element._id, Option:""})
+                    a.push({ID:element._id, Option:"-"})
                 }
                 
                 

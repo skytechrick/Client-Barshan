@@ -13,13 +13,14 @@ const Profile_Page = async(req, res) =>{
     let Auths = await User_Auth(cook);
     if (Auths != null) {
         let a = Auths.Address;
-        console.log(a);
+        // console.log(a);
         if (a) {
             
             if (a.length > 10) {
                 a = a.replace(/<br>/g, '\n');
+                let c = Auths.PIN;
 
-                res.status(200).render("Profile_Page",{Assd:a});
+                res.status(200).render("Profile_Page",{Assd:a, PIN:c, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
                 
             }else{
                 res.status(200).render("Profile_Page",{Assd:" "});

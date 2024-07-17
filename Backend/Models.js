@@ -11,6 +11,20 @@ db.once('open',() => {
 });
 
 
+let order = {
+    _id:{type:String},
+    Name:{type:String},
+    PIN:{type:String},
+    Mobile_Number:{type:String},
+    Address:{type:String},
+    Products:{type:Object},
+    Type:{type:String},
+    Confirmed:{type:String},
+    Date:{type:String},
+    Status:{type:String},
+    Pricing:{type:String},
+}
+
 let database = {
     _id:{type:String},
     Logs:{type:String},
@@ -18,11 +32,13 @@ let database = {
     Email:{type:String},
     Mobile_Number:{type:String},
     Password:{type:String},
+    Orders:{type:Object},
     Auth:{type:Object}, 
     Verified:{type:String},
     Cart:{type:Object},
     Ban:{type:String},
     Address:{type:Object},
+    PIN:{type:String},
 }
 let d = {
     
@@ -41,11 +57,14 @@ let d = {
 
 const database1 = new mongoose.Schema(database);
 const database2 = new mongoose.Schema(d);
+const database3 = new mongoose.Schema(order);
 const User_ID = mongoose.model("User", database1);
 const P = mongoose.model("Products", database2);
+const z = mongoose.model("Orders", database3);
 
 module.exports = {
     User_Profile: User_ID,
     Products:P,
+    Orders:z,
 
 }
