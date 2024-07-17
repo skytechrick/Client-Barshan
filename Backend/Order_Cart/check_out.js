@@ -79,11 +79,11 @@ const check_out = async (req, res) =>{
                     }
                     res.status(200).render("CheckOut_Page.pug",fg);
                 }else{
-                    res.status(200).redirect("/cart");
+                    res.status(200).redirect("/");
                 }
 
             }else{
-                res.status(200).redirect("/cart");
+                res.status(200).redirect("/");
 
             }
 

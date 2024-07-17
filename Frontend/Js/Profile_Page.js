@@ -32,7 +32,7 @@ function Address_Btn() {
         }else{
             Message(data.Success);
             setTimeout(() => {
-                location.reload();
+                window.location.replace("/check_out");
                 
             }, 3000);
         }
