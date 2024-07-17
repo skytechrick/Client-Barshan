@@ -1,4 +1,8 @@
-
+document.getElementById('Address').placeholder = `Locality, Landmark
+Town, City
+PIN:      ______
+District: ______
+State:    ______`;
 
 function Message(Show) {
     document.getElementById("Message_Box").style.display = "flex";

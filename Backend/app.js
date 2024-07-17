@@ -69,7 +69,9 @@ app.get("/product/back_cover_collections",Covers_First);
 
 
 app.post("/add-to-cart",add_to_cart);
+app.post("/buyNow",require("./Order_Cart/AdBuynow.js"));
 app.get("/cart",Cart_Get);
+// app.get("/buy_now",require("./Order_Cart/Buy_Now.js"));
 app.put("/cart/update", Cart_Update);
 app.get("/check_out", check_out);
 
@@ -109,16 +111,14 @@ const uploadMiddleware1 = Photo_Upload.fields([
 
 app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
 
-
+app.post("/dashboard_product/add", uploadMiddleware1,Dashboard_Product_Post);
 
 app.get("/Dashboard_Product/Ordersafsdfgedtffgikhweopfhe324idsgfdsgfjkdsfgdsuigfdsgoriy384ty8dfgfdgdfgfd",require("./Dashboard_Order/Dashboard_Order.js"));
 app.get("/Dashboard_Product/safsfsddfdsfdfsgdjkfgdhfjsdkfdsgfdgsfdsjhfdsfdsgfdsgfdgsfd7sftdsf8dsftsdfsdo89fydsfsd8fdOrder/Search",require("./Dashboard_Order/Dashboard_OrderSearch.js"));
 app.post("/Dashbord/order/update",require("./Dashboard_Order/Dashboard_OrderSearch_Update.js"));
 
-
-
 app.get("*",async(req, res)=>{
     res.status(200).send("Page not Found");
 });
 
-app.listen(80,()=>{console.log(`Node JS runned successfully at http://lznqxtn8-80.inc1.devtunnels.ms:${process.env.Port}`)});
+app.listen(80,()=>{console.log(`Node JS runned successfully at http://zipbuy.in:${process.env.Port}`)});

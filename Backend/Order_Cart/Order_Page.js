@@ -14,9 +14,9 @@ const Order_Page = async(req, res) =>{
     let Auths = await User_Auth(cook);
     if (Auths != null) {
 
-        let Orders = await Orders.find({});
+        let Ordersa = await Orders.find({});
         
-        if(Orders == [] || Orders == null || Orders.length < 1){
+        if(Ordersa == [] || Ordersa == null || Ordersa.length < 1){
             
             let dc = {
                 In:"Your order Page is Empty",
@@ -26,8 +26,8 @@ const Order_Page = async(req, res) =>{
         }else{
             let Girl = "";
             let Produ = await Products.find({});
-            for (let g = 0; g < Orders.length; g++) {
-                let OrderPart = Orders[g];
+            for (let g = 0; g < Ordersa.length; g++) {
+                let OrderPart = Ordersa[g];
                 let LL1 = OrderPart.Products[0];
                 let aaaa = "";
                 for (let index = 0; index < LL1.length; index++) {

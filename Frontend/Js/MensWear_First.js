@@ -35,7 +35,7 @@ function Buy_Now(n) {
         ID:n
     }
     console.log(x);
-    fetch("/buynow",{
+    fetch("/buyNow",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(x),
@@ -43,9 +43,9 @@ function Buy_Now(n) {
         if(data.Success == "332a"){
             window.location.replace("/login");
         }else if(data.Success == 1){
-            setTimeout(() => {
-                window.location.replace("/cart");
-            }, 1500);
+            // setTimeout(() => {
+            window.location.replace("/cart");
+            // }, 1500);
 
             console.log("Order Successfully.");
         }else{

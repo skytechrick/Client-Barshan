@@ -16,12 +16,12 @@ const a = async (req, res) =>{
         
         let Girl = "";
         let Ordersq = await Orders.find({_id:req.query.ID});
-        console.log("Ordersq");
-        console.log(Ordersq.length);
-        console.log("Ordersq");
+        // console.log("");
+        // console.log(Ordersq.length);
+        // console.log("Ordersq");
 
         if (Ordersq.length != 0 ) {
-            console.log("354243");
+            // console.log("354243");
             
             
             let Produ = await Products.find({});

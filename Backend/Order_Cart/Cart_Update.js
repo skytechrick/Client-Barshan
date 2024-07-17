@@ -28,7 +28,43 @@ const Cart_Update = async(req, res) =>{
                 }
                 
             }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             if (kl == 1) {
+
+
+
+                    
                 let Cart = Auths.Cart;
                 let TY=[];
                 for (let q = 0; q < Cart.length; q++) {
@@ -50,9 +86,29 @@ const Cart_Update = async(req, res) =>{
                 }).catch(()=>{
                     
                     res.status(200).json({Success:"Server Error."});
-                })
+                });
 
                 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             }else{
                 res.status(200).json({Success:"Product not found."});
             }
@@ -102,6 +158,21 @@ const Cart_Update = async(req, res) =>{
 
 
 
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
             let ID = req.body.ID;
             let dd = await Products.find({});
 
@@ -126,7 +197,7 @@ const Cart_Update = async(req, res) =>{
                             ID:element.ID,
                             Model:req.body.Model,
                             Skin:element.Skin,
-                            Option:element.Option,
+                            Option:req.body.Model + " | " + element.Skin,
                         });
 
                         
@@ -189,7 +260,7 @@ const Cart_Update = async(req, res) =>{
                             ID:element.ID,
                             Model:element.Model,
                             Skin:req.body.Skin,
-                            Option:element.Option,
+                            Option:element.Model + " | " + req.body.Skin,
                         });
 
                         
