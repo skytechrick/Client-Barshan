@@ -95,17 +95,21 @@
 
 
 
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
-const uri = process.env.DATABASE_URL;
+
+const uri = "mongodb+srv://abhijitroykarmakar1000:4qrtVmnozTCn9Z4s@zipbuydb.1ex9euh.mongodb.net/?retryWrites=true&w=majority&appName=ZIPBUYDB";
+
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true,
-  }
+  },
+  tlsAllowInvalidCertificates: true,  // Allow invalid certificates
+  tlsAllowInvalidHostnames: true,     // Allow invalid hostnames
 });
+
 async function run() {
   try {
     await client.connect();
@@ -113,9 +117,10 @@ async function run() {
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } catch (err) {
     console.error("MongoDB connection error:", err);
+  } finally {
+    await client.close();
   }
 }
-
 
 run().catch(console.dir);
 
@@ -125,14 +130,12 @@ const userCollection = 'User';
 const productCollection = 'Products';
 const orderCollection = 'Orders';
 
-
-
-
 async function getUserProfileOne(a) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
   return await collection.findOne(a);
 }
+
 async function getUserProfile() {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
@@ -156,13 +159,12 @@ async function updateUserProfile(userId, update) {
   const collection = db.collection(userCollection);
   return await collection.updateOne(userId, update);
 }
+
 async function updateOrder(orderId, update) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
   return await collection.updateOne(orderId, update );
 }
-
-
 
 async function insertUser(user) {
   const db = client.db(dbName);
@@ -176,7 +178,7 @@ async function insertProduct(user) {
   return await collection.insertOne(user);
 }
 
-async function insertorder(user) {
+async function insertOrder(user) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
   return await collection.insertOne(user);
@@ -188,201 +190,18 @@ async function getOrderOne(a) {
   return await collection.findOne(a);
 }
 
-
-
-
-
 module.exports = {
-  
   getUserProfile,
   updateUserProfile,
   getUserProfileOne,
   insertUser,
-  
   getProduct,
   insertProduct,
-  
   getOrder,
   updateOrder,
-  insertorder,
+  insertOrder,
   getOrderOne,
-
 };
 
 // Run the example usage if needed
 // exampleUsage();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
