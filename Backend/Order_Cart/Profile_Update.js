@@ -19,7 +19,7 @@ const Profile_Update = async(req, res)=>{
         await User_Profile.updateOne({_id:Auths._id}, {$set:{Address:a, PIN:PIN}});
         res.status(200).json({Success:"Edited Successfully."});
     }else{ 
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).json({Success:"1"});
     }
 

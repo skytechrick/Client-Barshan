@@ -97,7 +97,7 @@ const check_out = async (req, res) =>{
             res.status(200).redirect("/profile");
         }
     }else{
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).redirect("/login");
     }
 

@@ -285,7 +285,7 @@ const Cart_Update = async(req, res) =>{
         }
         
     }else{ 
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).json({Success:"1"});
     }
 }

@@ -31,7 +31,7 @@ const Profile_Page = async(req, res) =>{
             
         }
     }else{ 
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).redirect("/login");
     }
 

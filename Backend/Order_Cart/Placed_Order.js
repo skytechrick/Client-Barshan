@@ -140,7 +140,7 @@ const Placed_Order = async(req, res) =>{
             }
         }
     }else{
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).json({Success:"Logout"});
     }
 }

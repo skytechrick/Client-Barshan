@@ -86,7 +86,7 @@ const Order_Page = async(req, res) =>{
 
         // res.status(200).render("Order_Page");
     }else{
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).redirect("/login");
     }
 
