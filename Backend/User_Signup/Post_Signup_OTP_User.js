@@ -1,10 +1,10 @@
 
 
-const {User_Profile} = require("../Models.js");
+const {getUserProfile} = require("../Models.js");
 
 const Post_Signup_OTP_User = async(req, res) =>{
 
-    let data = await User_Profile.find({});
+    let data = await getUserProfile.find({});
     let jk = 0;
     let Men;
     for (let i = 0; i < data.length; i++) {

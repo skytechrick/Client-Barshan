@@ -4,7 +4,7 @@ const Auth_Token = require("../Mod/Auth.js");
 const Pass_Hash = require("../Mod/PassHas.js");
 const OTP = require("../Mod/OTP.js");
 const Profile_ID = require("../Mod/User_ID.js");
-const {User_Profile} = require("../Models.js");
+const {insertUser , getUserProfile,  } = require("../Models.js");
 const nodemailer = require("nodemailer");
 const Transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -20,7 +20,7 @@ const Post_Signup_User = async(req,res)=>{
             let cook = req.cookies.Signup;
             
             if (cook === "New") {
-                let Users = await User_Profile.find({});
+                let Users = await getUserProfile({});
                 let Opt = req.body;
                 let Name = Opt.Name;
                 let Mob = Opt.Mobile_Number;
@@ -213,60 +213,48 @@ const Post_Signup_User = async(req,res)=>{
                             
                         }
                         
-                        let xc = User_Profile(database);
-                        await xc.save().then(()=>{
+                        await insertUser(database);
+                        // await xc.save().then(()=>{
 
 
 
-                            const Mail_Option = {
-                                from: 'Congratulations <zipbuy01@gmail.com>',
-                                to: Email1,
-                                subject: 'Email verification | OTP | ZIPBUY', 
-                                html: MAILSENT,
-                            };
-                            Transporter.sendMail(Mail_Option);
+                        const Mail_Option = {
+                            from: 'Congratulations <zipbuy01@gmail.com>',
+                            to: Email1,
+                            subject: 'Email verification | OTP | ZIPBUY', 
+                            html: MAILSENT,
+                        };
+                        Transporter.sendMail(Mail_Option);
 
-                            res.cookie("Auth_OTP", Auth_Token1, { 
-                                path:"/",
-                                secure:   false,
-                                maxAge:   1200000,
-                                overwrite: true,
-                                httpOnly:  true,
-                            });
-                            res.cookie("Email", Email1, { 
-                                path:"/",
-                                secure:   false,
-                                maxAge:   1200000,
-                                overwrite: true,
-                                httpOnly:  true,
-                            });
-                            res.cookie("Status","OTP", { 
-                                path:"/",
-                                secure:   false,
-                                maxAge:   1200000,
-                                overwrite: true,
-                                httpOnly:  true,
-                            });
-                            res.clearCookie("Signup");
-                            let send = {
-                                Success: true,
-                                OBJ: cc,
-                            }
-                            res.status(200).json(send);
-
-                            setTimeout(async () => {
-                                let d = await User_Profile.find({});
-                                for (let a = 0; a < d.length; a++) {
-                                    const element = d[a];
-                                    if(element._id == Profile_ID1){
-                                        if(element.Verified == "No"){
-                                            await User_Profile.deleteOne({_id: element._id});
-                                        }
-                                        break;
-                                    }
-                                }
-                            }, 1200000);
+                        res.cookie("Auth_OTP", Auth_Token1, { 
+                            path:"/",
+                            secure:   false,
+                            maxAge:   1200000,
+                            overwrite: true,
+                            httpOnly:  true,
                         });
+                        res.cookie("Email", Email1, { 
+                            path:"/",
+                            secure:   false,
+                            maxAge:   1200000,
+                            overwrite: true,
+                            httpOnly:  true,
+                        });
+                        res.cookie("Status","OTP", { 
+                            path:"/",
+                            secure:   false,
+                            maxAge:   1200000,
+                            overwrite: true,
+                            httpOnly:  true,
+                        });
+                        res.clearCookie("Signup");
+                        let send = {
+                            Success: true,
+                            OBJ: cc,
+                        }
+                        res.status(200).json(send);
+
+                        // });
                     }
                 }else{
                     let send = {
