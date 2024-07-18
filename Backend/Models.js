@@ -1,100 +1,3 @@
-// const mongoose = require("mongoose");
-// mongoose.connect('mongodb://127.0.0.1:27017/Bar');
-
-// const db = mongoose.connection;
-// db.on('error',(error) => {
-//     console.log('MongoDB connection error:');
-// });
-
-// db.once('open',() => {
-//     console.log('Connected to MongoDB database.');
-// });
-
-
-// let order = {
-//     _id:{type:String},
-//     Name:{type:String},
-//     PIN:{type:String},
-//     Mobile_Number:{type:String},
-//     Address:{type:String},
-//     Products:{type:Object},
-//     Type:{type:String},
-//     Confirmed:{type:String},
-//     Date:{type:String},
-//     Status:{type:String},
-//     Pricing:{type:String},
-// }
-
-// let database = {
-//     _id:{type:String},
-//     Logs:{type:String},
-//     Name:{type:String},
-//     Email:{type:String},
-//     Mobile_Number:{type:String},
-//     Password:{type:String},
-//     Orders:{type:Object},
-//     Auth:{type:Object}, 
-//     Verified:{type:String},
-//     Cart:{type:Object},
-//     Ban:{type:String},
-//     Address:{type:Object},
-//     PIN:{type:String},
-// }
-// let d = {
-    
-//     _id:{type:String},
-//     URL:{type:String},
-//     Category:{type:String},
-//     Title:{type:String},
-//     MRP:{type:String},
-//     Selling_Price:{type:String},
-//     Option:{type:Object},
-//     Description:{type:String},
-//     Images:{type:Object},
-//     Orders_IDs:{type:Object},
-//     Instock:{type:String},
-// }
-
-// const database1 = new mongoose.Schema(database);
-// const database2 = new mongoose.Schema(d);
-// const database3 = new mongoose.Schema(order);
-// const User_ID = mongoose.model("User", database1);
-// const P = mongoose.model("Products", database2);
-// const z = mongoose.model("Orders", database3);
-
-// module.exports = {
-//     User_Profile: User_ID,
-//     Products:P,
-//     Orders:z,
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
 
@@ -130,64 +33,64 @@ const userCollection = 'User';
 const productCollection = 'Products';
 const orderCollection = 'Orders';
 
-async function getUserProfileOne(a) {
+async function getUserProfileOne(a, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
-  return await collection.findOne(a);
+  return await collection.findOne(a, options);
 }
 
-async function getUserProfile() {
+async function getUserProfile(options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
-  return await collection.find({}).toArray();
+  return await collection.find({}, options).toArray();
 }
 
-async function getProduct() {
+async function getProduct(options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(productCollection);
-  return await collection.find({}).toArray();
+  return await collection.find({}, options).toArray();
 }
 
-async function getOrder() {
+async function getOrder(options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
-  return await collection.find({}).toArray();
+  return await collection.find({}, options).toArray();
 }
 
-async function updateUserProfile(userId, update) {
+async function updateUserProfile(userId, update, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
-  return await collection.updateOne(userId, update);
+  return await collection.updateOne(userId, update, options);
 }
 
-async function updateOrder(orderId, update) {
+async function updateOrder(orderId, update, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
-  return await collection.updateOne(orderId, update );
+  return await collection.updateOne(orderId, update, options);
 }
 
-async function insertUser(user) {
+async function insertUser(user, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
-  return await collection.insertOne(user);
+  return await collection.insertOne(user, options);
 }
 
-async function insertProduct(user) {
+async function insertProduct(product, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(productCollection);
-  return await collection.insertOne(user);
+  return await collection.insertOne(product, options);
 }
 
-async function insertOrder(user) {
+async function insertOrder(order, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
-  return await collection.insertOne(user);
+  return await collection.insertOne(order, options);
 }
 
-async function getOrderOne(a) {
+async function getOrderOne(a, options = {}) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
-  return await collection.findOne(a);
+  return await collection.findOne(a, options);
 }
 
 module.exports = {
