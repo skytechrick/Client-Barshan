@@ -2,7 +2,7 @@
 
 const User_Auth = require("../User_Auth.js");
 
-const {Products, User_Profile} =  require("../Models.js");
+const {getProduct, updateUserProfile} =  require("../Models.js");
 
 const add_to_cart = async (req, res) =>{
     
@@ -10,7 +10,7 @@ const add_to_cart = async (req, res) =>{
     let cook = req.cookies.ID;
     let Auths = await User_Auth(cook);
     if (Auths != null) {
-        let AllProducts = await Products.find({});
+        let AllProducts = await getProduct();
         let H = 2;
         let element;
         let lett = "";
@@ -42,14 +42,11 @@ const add_to_cart = async (req, res) =>{
                 
                 
 
-                await User_Profile.updateOne({_id:Auths._id},{$set:{
+                await updateUserProfile({_id:Auths._id},{$set:{
                     Cart:a,
-                }}).then(()=>{
-                    res.status(200).json({Success:1});
-                }).catch(e=>{
-                    res.status(200).json({Success:0});
-                    
-                });
+                }})
+                res.status(200).json({Success:1});
+                
             }else{
                 // console.log(Auths);
 
@@ -64,14 +61,11 @@ const add_to_cart = async (req, res) =>{
                 
                 
 
-                await User_Profile.updateOne({_id:Auths._id},{$set:{
+                await updateUserProfile({_id:Auths._id},{$set:{
                     Cart:a,
-                }}).then(()=>{
-                    res.status(200).json({Success:1});
-                }).catch(e=>{
-                    res.status(200).json({Success:0});
-                    
-                });
+                }})
+                res.status(200).json({Success:1});
+                
 
             }
         }else{

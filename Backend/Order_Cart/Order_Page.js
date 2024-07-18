@@ -3,7 +3,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile, Orders} =  require("../Models.js");
+const {getProduct, getOrder} =  require("../Models.js");
 
 
 const Order_Page = async(req, res) =>{
@@ -14,7 +14,7 @@ const Order_Page = async(req, res) =>{
     let Auths = await User_Auth(cook);
     if (Auths != null) {
 
-        let Ordersa = await Orders.find({});
+        let Ordersa = await getOrder();
         
         if(Ordersa == [] || Ordersa == null || Ordersa.length < 1){
             
@@ -25,7 +25,7 @@ const Order_Page = async(req, res) =>{
             
         }else{
             let Girl = "";
-            let Produ = await Products.find({});
+            let Produ = await getProduct();
             for (let g = 0; g < Ordersa.length; g++) {
                 let OrderPart = Ordersa[g];
                 let LL1 = OrderPart.Products[0];
@@ -33,7 +33,7 @@ const Order_Page = async(req, res) =>{
                 for (let index = 0; index < LL1.length; index++) {
                     const LL = LL1[index];
                     const P_ID = LL.ID;
-                    console.log(P_ID);
+                    // console.log(P_ID);
                     const Option = LL.Option;
                     for (let gv = 0; gv < Produ.length; gv++) {
                         const product = Produ[gv];

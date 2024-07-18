@@ -98,8 +98,7 @@
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
-
-const uri = "mongodb+srv://abhijitroykarmakar1000:<password>@zipbuydb.1ex9euh.mongodb.net/?retryWrites=true&w=majority&appName=ZIPBUYDB";
+const uri = process.env.DATABASE_URL;
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -117,6 +116,7 @@ async function run() {
   }
 }
 
+
 run().catch(console.dir);
 
 // Database and Collection Names
@@ -128,102 +128,85 @@ const orderCollection = 'Orders';
 
 
 
-
-
-
-
-
-async function getUserProfile(userId) {
+async function getUserProfileOne(a) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
-  return await collection.find(userId).toArray();
+  return await collection.findOne(a);
 }
-async function getProduct(productId) {
+async function getUserProfile() {
   const db = client.db(dbName);
-  const collection = db.collection(productCollection);
-  return await collection.find(productId).toArray();
-}
-async function getOrder(orderId) {
-  const db = client.db(dbName);
-  const collection = db.collection(orderCollection);
-  return await collection.find(orderId).toArray();
+  const collection = db.collection(userCollection);
+  return await collection.find({}).toArray();
 }
 
-
-
-
-async function getAllProducts() {
+async function getProduct() {
   const db = client.db(dbName);
   const collection = db.collection(productCollection);
   return await collection.find({}).toArray();
 }
 
-// Function to insert a new user
+async function getOrder() {
+  const db = client.db(dbName);
+  const collection = db.collection(orderCollection);
+  return await collection.find({}).toArray();
+}
+
+async function updateUserProfile(userId, update) {
+  const db = client.db(dbName);
+  const collection = db.collection(userCollection);
+  return await collection.updateOne(userId, update);
+}
+async function updateOrder(orderId, update) {
+  const db = client.db(dbName);
+  const collection = db.collection(orderCollection);
+  return await collection.updateOne(orderId, update );
+}
+
+
+
 async function insertUser(user) {
   const db = client.db(dbName);
   const collection = db.collection(userCollection);
   return await collection.insertOne(user);
 }
 
-// Function to update an existing order
-async function updateOrder(orderId, update) {
+async function insertProduct(user) {
+  const db = client.db(dbName);
+  const collection = db.collection(productCollection);
+  return await collection.insertOne(user);
+}
+
+async function insertorder(user) {
   const db = client.db(dbName);
   const collection = db.collection(orderCollection);
-  return await collection.updateOne({ _id: orderId }, { $set: update });
+  return await collection.insertOne(user);
 }
 
-// Example usage
-async function exampleUsage() {
-  await run(); // Ensure connection is established
-
-  // Fetch a user profile
-  const user = await getUserProfile('someUserId');
-  console.log('User:', user);
-
-  // Insert a new user
-  const newUser = {
-    _id: 'newUserId',
-    Name: 'John Doe',
-    Email: 'john.doe@example.com',
-    // Add other fields as required
-  };
-  await insertUser(newUser);
-
-  // Fetch a product
-  const product = await getProduct('someProductId');
-  console.log('Product:', product);
-
-  // Fetch all products
-  const allProducts = await getAllProducts();
-  console.log('All Products:', allProducts);
-
-  // Update an order
-  const updatedOrder = await updateOrder('someOrderId', { Status: 'Shipped' });
-  console.log('Updated Order:', updatedOrder);
+async function getOrderOne(a) {
+  const db = client.db(dbName);
+  const collection = db.collection(orderCollection);
+  return await collection.findOne(a);
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-// Exporting functions to use in other files
 module.exports = {
+  
   getUserProfile,
-  getProduct,
-  getOrder,
-  getAllProducts,
+  updateUserProfile,
+  getUserProfileOne,
   insertUser,
+  
+  getProduct,
+  insertProduct,
+  
+  getOrder,
   updateOrder,
+  insertorder,
+  getOrderOne,
+
 };
 
 // Run the example usage if needed

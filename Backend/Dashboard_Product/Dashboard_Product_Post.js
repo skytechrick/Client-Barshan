@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 
-const {Products} = require("../Models.js");
+const {getProduct, insertProduct} = require("../Models.js");
 
 
 
@@ -47,7 +47,7 @@ const Dashboard_Product_Post = async(req, res)=>{
             return name;
         }
 
-        let dss = await Products.find({});
+        let dss = await getProduct();
         let ID;
         while(true){
 
@@ -115,10 +115,10 @@ const Dashboard_Product_Post = async(req, res)=>{
             Instock:req.body.Quantity,
         };
         // console.log(a)
-        let s = new Products(a);
-        await s.save().then(()=>{
-            res.status(200).redirect('/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl');
-        })
+        await insertProduct(a);
+        res.status(200).redirect('/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl');
+        
+        
 
     }else{
         let ds = new Object(req.files);

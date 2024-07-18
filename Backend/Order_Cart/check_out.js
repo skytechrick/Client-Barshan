@@ -2,7 +2,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile} =  require("../Models.js");
+const {getProduct} =  require("../Models.js");
 
 
 const check_out = async (req, res) =>{
@@ -36,7 +36,7 @@ const check_out = async (req, res) =>{
 
                             let Carta = element.ID;
                             
-                            let data = await Products.find({});
+                            let data = await getProduct();
                             let a = 1;
                             let Found;
                             for (let r = 0; r < data.length; r++) {

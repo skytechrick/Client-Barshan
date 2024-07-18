@@ -3,7 +3,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile} =  require("../Models.js");
+const {getProduct} =  require("../Models.js");
 
 
 const Cart_Get = async (req, res) => {
@@ -22,7 +22,7 @@ const Cart_Get = async (req, res) => {
             for (let index = 0; index < Cart.length; index++) {
                 const element1 = Cart[index];
 
-                let data = await Products.find({});
+                let data = await getProduct();
                 let d;
                 let f = 1;
                 for (let sz = 0; sz < data.length; sz++) {

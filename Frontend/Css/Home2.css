@@ -384,8 +384,8 @@ footer {
 @media screen and (max-width:770px) {
     .Fott {
         width: 100%;
-    };
-};
+    }
+}
 
 
 
@@ -397,11 +397,11 @@ footer {
         align-items: center;
         height: auto;
         width: 100%;
-    };
+    }
     .P_Title {
         margin-right: 6px;
         font-size: 18px;
-    };
+    }
     
 }
 

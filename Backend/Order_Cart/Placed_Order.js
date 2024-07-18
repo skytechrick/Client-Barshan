@@ -2,7 +2,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile, Orders} =  require("../Models.js");
+const {getProduct,insertorder, updateUserProfile, getOrder} =  require("../Models.js");
 
 
 
@@ -31,7 +31,7 @@ const Placed_Order = async(req, res) =>{
             if(a == 2){
 
                 
-                let aa = await Orders.find({});
+                let aa = await getOrder();
                 let a;
                 while (true) {
                     a = ORDER_ID();
@@ -47,7 +47,7 @@ const Placed_Order = async(req, res) =>{
                         break;
                     }
                 }
-                Produ = await Products.find({});
+                Produ = await getProduct();
                 let Pricea = 0;
                 for (let gh = 0; gh < Auths.Cart.length; gh++) {
                     const element1 = Auths.Cart[gh];
@@ -74,17 +74,17 @@ const Placed_Order = async(req, res) =>{
                     Date:Date(),
                     Status:"Pending",
                 }
-                let xa = new Orders(Add);
-                await xa.save().then( async()=>{
-                    let fv = Auths.Orders;
-                    fv.push(Add);
-                    await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
-                    const Message = `https://zipbuy.in/order`;
-                    res.status(200).json({Success:"Paid", Link:Message});
-                });
+                await insertorder(Add);
+                
+                let fv = Auths.Orders;
+                fv.push(Add);
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
+                const Message = `https://lznqxtn8-80.inc1.devtunnels.ms/order`;
+                res.status(200).json({Success:"Paid", Link:Message});
+                
             }else{
                 
-                let aa = await Orders.find({});
+                let aa = await getOrder();
                 let a;
                 while (true) {
                     a = ORDER_ID();
@@ -100,7 +100,7 @@ const Placed_Order = async(req, res) =>{
                         break;
                     }
                 }
-                Produ = await Products.find({});
+                Produ = await getProduct();
                 let Pricea = 0;
                 for (let gh = 0; gh < Auths.Cart.length; gh++) {
                     const element1 = Auths.Cart[gh];
@@ -128,15 +128,13 @@ const Placed_Order = async(req, res) =>{
                     Status:"Payment Pending",
                 };
                 
-                let xa = new Orders(Add);
-                await xa.save().then( async()=>{
-                    let fv = Auths.Orders;
-                    fv.push(Add)
-                    await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
-                    let Price = Pricea;
-                    const Message = `https://api.whatsapp.com/send?phone=919749848292&text=*Hello%2C*%20Sir%0AMy%20Name%20is%2C${Auths.Name}%0AI%20have%20placed%20order%20Successfully.%20%F0%9F%A4%A9%0AThis%20is%20my%20order%20ID%3A%20${ORDER_IDa}%0AAnd%20the%20amount%20is%20Rs%3A%20${Price}%0A%0A%0APlease%20share%20me%20the%20QR%20code%20or%20UPI%20Number%20for%20payment.%0AThank%20you%20for%20considering%20my%20order`;
-                    res.status(200).json({Success:"Yes", Link:Message});
-                });
+                await insertorder(Add);
+                let fv = Auths.Orders;
+                fv.push(Add)
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
+                let Price = Pricea;
+                const Message = `https://api.whatsapp.com/send?phone=919749848292&text=*Hello%2C*%20Sir%0AMy%20Name%20is%2C%20${Auths.Name}%0AI%20have%20placed%20order%20Successfully.%20%F0%9F%A4%A9%0AThis%20is%20my%20order%20ID%3A%20${ORDER_IDa}%0AAnd%20the%20amount%20is%20Rs%3A%20${Price}%0A%0A%0APlease%20share%20me%20the%20QR%20code%20or%20UPI%20Number%20for%20payment.%0AThank%20you%20for%20considering%20my%20order`;
+                res.status(200).json({Success:"Yes", Link:Message});
             }
         }
     }else{

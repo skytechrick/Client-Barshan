@@ -4,7 +4,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile, Orders} =  require("../Models.js");
+const {getUserProfile, updateOrder, updateUserProfile} =  require("../Models.js");
 
 
 const a = async (req, res) =>{
@@ -12,7 +12,7 @@ const a = async (req, res) =>{
     // console.log(pp);
     let p1p = req.body.Status;
     // console.log(p1p);
-    let array = await User_Profile.find({});
+    let array = await getUserProfile();
     for (let index = 0; index < array.length; index++) {
         let nett = [];
         const PerUser = array[index];
@@ -36,7 +36,7 @@ const a = async (req, res) =>{
             }            
         }
         if (tup == 1) {
-            await User_Profile.updateOne({_id:PerUser._id},{
+            await updateUserProfile({_id:PerUser._id},{
                 $set:{
                     Orders: nett
                 }
@@ -56,7 +56,7 @@ const a = async (req, res) =>{
     
 
 
-    await Orders.updateOne({_id:pp},{$set:{
+    await updateOrder({_id:pp},{$set:{
         Status:p1p,
     }});
     res.status(200).redirect("/Dashboard_Product/Ordersafsdfgedtffgikhweopfhe324idsgfdsgfjkdsfgdsuigfdsgoriy384ty8dfgfdgdfgfd");

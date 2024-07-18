@@ -3,7 +3,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile, Orders} =  require("../Models.js");
+const {getProduct, getOrder} =  require("../Models.js");
 
 
 
@@ -11,7 +11,7 @@ const {Products, User_Profile, Orders} =  require("../Models.js");
 
 const Dashboard_Order = async (req, res) => {
 
-    let Ordersq = await Orders.find({});
+    let Ordersq = await getOrder();
         
     if(Ordersq == [] || Ordersq == null || Ordersq.length < 1){
         
@@ -22,7 +22,7 @@ const Dashboard_Order = async (req, res) => {
         
     }else{
         let Girl = "";
-        let Produ = await Products.find({});
+        let Produ = await getProduct();
         for (let g = 0; g < Ordersq.length; g++) {
             let OrderPart = Ordersq[g];
             let LL1 = OrderPart.Products[0];

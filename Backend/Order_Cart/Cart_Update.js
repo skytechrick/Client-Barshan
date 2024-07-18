@@ -4,7 +4,7 @@
 const User_Auth = require("../User_Auth.js");
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products, User_Profile} =  require("../Models.js");
+const {getProduct, updateUserProfile} =  require("../Models.js");
 
 
 const Cart_Update = async(req, res) =>{
@@ -15,7 +15,7 @@ const Cart_Update = async(req, res) =>{
     if (Auths != null) {
         if(req.body.Type == 'Update'){
             let ID = req.body.ID;
-            let dd = await Products.find({});
+            let dd = await getProduct();
 
             let kl = 0;
             let element1;
@@ -80,13 +80,10 @@ const Cart_Update = async(req, res) =>{
                     }
                     
                 }
-                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:TY}})
 
-                    res.status(200).json({Success:"Cart Updated successfully."});
-                }).catch(()=>{
-                    
-                    res.status(200).json({Success:"Server Error."});
-                });
+                res.status(200).json({Success:"Cart Updated successfully."});
+                
 
                 
             
@@ -115,7 +112,7 @@ const Cart_Update = async(req, res) =>{
             
         }else if(req.body.Type == 'Delete'){
             let ID = req.body.ID;
-            let dd = await Products.find({});
+            let dd = await getProduct();
 
             let element1;
             let kl = 0;
@@ -141,13 +138,9 @@ const Cart_Update = async(req, res) =>{
                     }
                     
                 }
-                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:TY}})
 
-                    res.status(200).json({Success:"Removed successfully."});
-                }).catch(()=>{
-                    
-                    res.status(200).json({Success:"Server Error."});
-                })
+                res.status(200).json({Success:"Removed successfully."});
 
                 
             }else{
@@ -174,7 +167,7 @@ const Cart_Update = async(req, res) =>{
 
 
             let ID = req.body.ID;
-            let dd = await Products.find({});
+            let dd = await getProduct();
 
             let element1;
             let kl = 0;
@@ -207,15 +200,10 @@ const Cart_Update = async(req, res) =>{
                     }
                     
                 }
-                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:TY}})
 
-                    res.status(200).json({Success:"Cart Updated successfully."});
-                }).catch(()=>{
-                    
-                    res.status(200).json({Success:"Server Error."});
-                })
-
-                
+                res.status(200).json({Success:"Cart Updated successfully."});
+                       
             }else{
                 res.status(200).json({Success:"Product not found."});
             }
@@ -237,7 +225,7 @@ const Cart_Update = async(req, res) =>{
 
 
             let ID = req.body.ID;
-            let dd = await Products.find({});
+            let dd = await getProduct();
 
             let element1;
             let kl = 0;
@@ -270,13 +258,9 @@ const Cart_Update = async(req, res) =>{
                     }
                     
                 }
-                await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:TY}}).then(()=>{
+                await updateUserProfile({_id:Auths._id},{$set:{Cart:TY}})
 
-                    res.status(200).json({Success:"Cart Updated successfully."});
-                }).catch(()=>{
-                    
-                    res.status(200).json({Success:"Server Error."});
-                })
+                res.status(200).json({Success:"Cart Updated successfully."});
 
                 
             }else{

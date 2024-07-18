@@ -1,7 +1,7 @@
 
 
 const {JWT_Verify} =  require("./Mod/JWT.js");
-const {User_Profile} =  require("./Models.js");
+const {getUserProfile} =  require("./Models.js");
 
 const User_Auth = async(Cook)=>{
 
@@ -12,7 +12,7 @@ const User_Auth = async(Cook)=>{
     }else{
         let Profile_ID = s.ID;
         let Auth_ID = s.Auth;
-        let All_User = await User_Profile.find({});
+        let All_User = await getUserProfile();
         let l = 2;
         let User;
         for (let index = 0; index < All_User.length; index++) {

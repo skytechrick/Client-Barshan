@@ -1,12 +1,12 @@
 
-const {Products} = require("./Models.js");
+const {getProduct} = require("./Models.js");
 
 const NumINR = require("./Mod/NumINR.js")
 
 const Products_Page = async (req, res) => {
 
     let URL = req.params.URL;
-    let All =  await Products.find({});
+    let All =  await getProduct();
     let fg = 2;
     let Pro;
     for (let index = 0; index < All.length; index++) {
@@ -25,7 +25,7 @@ const Products_Page = async (req, res) => {
         const element = As[i];
         let a = `<button class="IMG_BTN" onclick="P_LIST(${i+1});">
                     <img id="P_LIST${i+1}" class="P_LIST" src="${element}" alt="Product_Img">
-                </button>`
+                </button>`;
         Imss += a;
         
     }

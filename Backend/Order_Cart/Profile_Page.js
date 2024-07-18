@@ -12,26 +12,28 @@ const Profile_Page = async(req, res) =>{
     let cook = req.cookies.ID;
     let Auths = await User_Auth(cook);
     if (Auths != null) {
+        // console.log(Auths);
         let a = Auths.Address;
         // console.log(a);
         if (a) {
             
-            if (a.length > 10) {
+            if (a.length > 20) {
                 a = a.replace(/<br>/g, '\n');
                 let c = Auths.PIN;
 
                 res.status(200).render("Profile_Page",{Assd:a, PIN:c, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
                 
             }else{
-                res.status(200).render("Profile_Page",{Assd:" "});
+                res.status(200).render("Profile_Page",{Assd:"", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
                 
             }
         }else{
-            res.status(200).render("Profile_Page",{Assd:" "});
+            res.status(200).render("Profile_Page",{Assd:"", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
+            
             
         }
     }else{ 
-        res.cookie("ID");
+        res.clearCookie("ID");
         res.status(200).redirect("/login");
     }
 

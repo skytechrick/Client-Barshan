@@ -1,7 +1,7 @@
 
 
 
-const {User_Profile} = require("../Models.js");
+const {getUserProfile, updateUserProfile} = require("../Models.js");
 
 
 const OTP_VERIF_Sign = async (req, res) =>{
@@ -9,7 +9,7 @@ const OTP_VERIF_Sign = async (req, res) =>{
 
 
 
-    let data = await User_Profile.find({});
+    let data = await getUserProfile();
     let jk = 0;
     let Men;
     for (let i = 0; i < data.length; i++) {
@@ -32,7 +32,7 @@ const OTP_VERIF_Sign = async (req, res) =>{
 
 
                 
-                await User_Profile.updateOne({Email:Men.Email},{$set:{Auth:{Auth_ID:"",OTP:""},Verified:"Yes"}});
+                await updateUserProfile({Email:Men.Email},{$set:{Auth:{Auth_ID:"",OTP:""},Verified:"Yes"}});
                 res.clearCookie("Signup");
                 res.clearCookie("Auth_OTP");
                 res.clearCookie("Email");

@@ -1,13 +1,13 @@
 
 const NumINR = require("../Mod/NumINR.js");
 
-const {Products} =  require("../Models.js");
+const {getProduct} =  require("../Models.js");
 
 
 const Covers_First = async (req, res) => {
 
 
-    let All = await Products.find({});
+    let All = await getProduct();
     let fin = "";
     for (let i = 0; i < All.length; i++) {
         const element = All[i];
