@@ -23,11 +23,11 @@ const Profile_Page = async(req, res) =>{
                 res.status(200).render("Profile_Page",{Assd:a, PIN:c, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
                 
             }else{
-                res.status(200).render("Profile_Page",{Assd:" "});
+                res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
                 
             }
         }else{
-            res.status(200).render("Profile_Page",{Assd:" "});
+            res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
             
         }
     }else{ 

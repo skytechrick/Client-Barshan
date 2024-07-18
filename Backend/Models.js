@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect('mongodb://127.0.0.1:27017/Bar');
+mongoose.connect('mongodb+srv://abhijitroykarmakar1000:4qrtVmnozTCn9Z4s@zipbuydb.1ex9euh.mongodb.net/ZIPBUYDB');
 
 const db = mongoose.connection;
 db.on('error',(error) => {
@@ -58,9 +58,9 @@ let d = {
 const database1 = new mongoose.Schema(database);
 const database2 = new mongoose.Schema(d);
 const database3 = new mongoose.Schema(order);
-const User_ID = mongoose.model("User", database1);
-const P = mongoose.model("Products", database2);
-const z = mongoose.model("Orders", database3);
+const User_ID = mongoose.model("user", database1);
+const P = mongoose.model("products", database2);
+const z = mongoose.model("orders", database3);
 
 module.exports = {
     User_Profile: User_ID,
