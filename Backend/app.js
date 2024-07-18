@@ -82,6 +82,10 @@ app.put("/order", require("./Order_Cart/Placed_Order"));
 app.get("/profile",Profile_Page);
 app.put("/profile/update", Profile_Update);
 
+app.get("/logout",(req, res)=>{
+    res.clearCookie("ID");
+    res.status(200).redirect("/login")
+});
 
 
 
@@ -121,4 +125,4 @@ app.get("*",async(req, res)=>{
     res.status(200).send("Page not Found");
 });
 
-app.listen(80,()=>{console.log(`Node JS runned successfully at http://192.168.0.44:${process.env.Port}`)});
+app.listen(80,()=>{console.log(`Node JS runned successfully at http://192.168.0.12:${process.env.Port}`)});

@@ -79,7 +79,7 @@ const Placed_Order = async(req, res) =>{
                     let fv = Auths.Orders;
                     fv.push(Add);
                     await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
-                    const Message = `http://192.168.0.44/order`;
+                    const Message = `http://192.168.0.12/order`;
                     res.status(200).json({Success:"Paid", Link:Message});
                 });
             }else{
