@@ -16,8 +16,8 @@ const a = async (req, res) =>{
         
         let Girl = "";
         let Ordersq = await getOrderOne({_id:req.query.ID});
-        console.log("Ordersq");
-        console.log(Ordersq);
+        // console.log("Ordersq");
+        // console.log(Ordersq);
         // console.log(Ordersq.length);
 
         if (Ordersq != null ) {

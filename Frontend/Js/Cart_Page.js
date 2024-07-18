@@ -26,7 +26,7 @@ function Update(n, x){
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({ID:`${n}`,Type:"Update", Selected:xc})
     }).then(response=>{return response.json();}).then(data=>{
-        console.log(data.Success);
+        // console.log(data.Success);
         if (data.Success == "1") {
             location.reload();
         }else{
@@ -37,7 +37,7 @@ function Update(n, x){
             }, 3000);
         }
     }).catch(e=>{
-        console.log("Error");
+        // console.log("Error");
                 
     });
 
@@ -50,7 +50,7 @@ function delete_cart(n,x){
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({ID:`${n}`,Type:"Delete"})
     }).then(response=>{return response.json();}).then(data=>{
-        console.log(data.Success);
+        // console.log(data.Success);
         if (data.Success == "1") {
             location.reload();
         }else{
@@ -61,7 +61,7 @@ function delete_cart(n,x){
             }, 3000);
         }
     }).catch(e=>{
-        console.log("Error");
+        // console.log("Error");
                 
     });
 
