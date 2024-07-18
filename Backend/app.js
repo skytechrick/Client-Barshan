@@ -121,4 +121,4 @@ app.get("*",async(req, res)=>{
     res.status(200).send("Page not Found");
 });
 
-app.listen(80,()=>{console.log(`Node JS runned successfully at http://lznqxtn8-80.inc1.devtunnels.ms:${process.env.Port}`)});
+app.listen(80,()=>{console.log(`Node JS runned successfully at https://zipbuy.in:${process.env.Port}`)});

@@ -20,10 +20,10 @@ const Get_Login = async(req, res) => {
             res.status(200).render("Login");
         
         }else{
-            res.status(200).redirect("http://lznqxtn8-80.inc1.devtunnels.ms/");
+            res.status(200).redirect("https://zipbuy.in/");
         }
     }else{
-        res.status(200).redirect("http://lznqxtn8-80.inc1.devtunnels.ms/");
+        res.status(200).redirect("https://zipbuy.in/");
     }
     
 
