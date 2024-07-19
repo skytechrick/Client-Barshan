@@ -16,10 +16,10 @@ const Get_Signup_User = async(req, res) => {
             res.status(200).render("Signup");
         
         }else{
-            res.status(200).redirect("http://192.168.0.12/");
+            res.status(200).redirect("https://zipbuy.in/");
         }
     }else{
-        res.status(200).redirect("http://192.168.0.12/");
+        res.status(200).redirect("https://zipbuy.in/");
     }
     
 
