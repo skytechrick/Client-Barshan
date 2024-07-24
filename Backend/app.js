@@ -46,6 +46,7 @@ const Hand_Printed_Collection_First = require("./Cat/Hand_Printed_Collection_Fir
 const Trending_Collection_First = require("./Cat/Trending_Collection_First.js");
 const Covers_First = require("./Cat/Covers_First.js");
 
+
 const Products_Page = require("./Products_Page.js");
 
 
@@ -66,6 +67,12 @@ app.get("/product/womenswear",WomensWear_First);
 app.get("/product/hand_printed_collections",Hand_Printed_Collection_First);
 app.get("/product/trending_collections",Trending_Collection_First);
 app.get("/product/back_cover_collections",Covers_First);
+
+app.get("/product/electronics",require("./Cat/Electronics_First.js"));
+app.get("/product/jewellery",require("./Cat/Jewellery_First.js"));
+app.get("/product/bags",require("./Cat/Bags_First.js"));
+app.get("/product/daily_used_accessories",require("./Cat/Daily_used_accessories_First.js"));
+app.get("/product/customize_products",require("./Cat/Customize_products_First.js"));
 
 
 app.post("/add-to-cart",add_to_cart);
