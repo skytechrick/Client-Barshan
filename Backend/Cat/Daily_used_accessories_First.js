@@ -47,7 +47,7 @@ const Daily_used_accessories_First = async (req, res) => {
             fin+=data;
         }
     };
-    res.status(200).render("back_cover_collections",{P:fin});
+    res.status(200).render("Daily_Used_First",{P:fin});
     // Mens_collection_Img.jpg
 }
 module.exports = Daily_used_accessories_First;

@@ -6,14 +6,23 @@ const OTP = require("../Mod/OTP.js");
 const Profile_ID = require("../Mod/User_ID.js");
 const {User_Profile} = require("../Models.js");
 const nodemailer = require("nodemailer");
-const Transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'zipbuy01@gmail.com',
-        pass: 'xbuo ytyu rgrd xyrd'
-    }
-});
+// const Transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'zipbuy01@gmail.com',
+//         pass: 'xbuo ytyu rgrd xyrd'
+//     }
+// });
 
+const Transporter = nodemailer.createTransport({
+    host: 's1334.bom1.mysecurecloudhost.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'account@zipbuy.in',
+      pass: '1234Zipbuy@#*'
+    }
+  });
 const Post_Signup_User = async(req,res)=>{
     if (req.cookies.Signup) {
         if(true){
@@ -214,7 +223,7 @@ const Post_Signup_User = async(req,res)=>{
                         }
                         
                         let xc = User_Profile(database);
-                        await xc.save().then(()=>{
+                        await xc.save().then( async()=>{
 
 
 
@@ -224,7 +233,7 @@ const Post_Signup_User = async(req,res)=>{
                                 subject: 'Email verification | OTP | ZIPBUY', 
                                 html: MAILSENT,
                             };
-                            Transporter.sendMail(Mail_Option);
+                            await Transporter.sendMail(Mail_Option);
 
                             res.cookie("Auth_OTP", Auth_Token1, { 
                                 path:"/",

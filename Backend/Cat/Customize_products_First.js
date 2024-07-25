@@ -47,7 +47,7 @@ const Customize_products_First = async (req, res) => {
             fin+=data;
         }
     };
-    res.status(200).render("back_cover_collections",{P:fin});
+    res.status(200).render("Customized_Products",{P:fin});
     // Mens_collection_Img.jpg
 }
 module.exports = Customize_products_First;

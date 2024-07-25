@@ -6,13 +6,24 @@ const bcrypt = require('bcrypt');
 const OTP = require("../Mod/OTP.js");
 const {User_Profile} = require("../Models.js");
 const nodemailer = require("nodemailer");
+// const Transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: 'zipbuy01@gmail.com',
+//         pass: 'xbuo ytyu rgrd xyrd'
+//     }
+// });
+
 const Transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 's1334.bom1.mysecurecloudhost.com',
+    port: 465,
+    secure: true,
     auth: {
-        user: 'zipbuy01@gmail.com',
-        pass: 'xbuo ytyu rgrd xyrd'
+      user: 'account@zipbuy.in',
+      pass: '1234Zipbuy@#*'
     }
-});
+  });
+
 
 
 const Post_Login = async(req, res) =>{
@@ -137,7 +148,7 @@ const Post_Login = async(req, res) =>{
                                     subject: 'Email verification | OTP | ZIPBUY', 
                                     html: MAILSENT,
                                 };
-                                Transporter.sendMail(Mail_Option);
+                                await Transporter.sendMail(Mail_Option);
 
                                 await User_Profile.updateOne({_id:d._id},{Auth:{
                                     Auth_ID:Auth_Token1,

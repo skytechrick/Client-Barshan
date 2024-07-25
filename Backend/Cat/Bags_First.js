@@ -47,7 +47,7 @@ const Bags_First = async (req, res) => {
             fin+=data;
         }
     };
-    res.status(200).render("back_cover_collections",{P:fin});
+    res.status(200).render("Bags_First",{P:fin});
     // Mens_collection_Img.jpg
 }
 module.exports = Bags_First;

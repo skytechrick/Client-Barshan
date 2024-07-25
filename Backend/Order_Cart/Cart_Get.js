@@ -49,45 +49,6 @@ const Cart_Get = async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         let a = `
                         <div class="Prod">
                             <div class="Side1">
@@ -172,6 +133,7 @@ const Cart_Get = async (req, res) => {
 
 
 
+                    }else if (d.Category == "Customize Products"){
 
 
 
@@ -179,6 +141,43 @@ const Cart_Get = async (req, res) => {
 
 
 
+
+
+
+
+                        
+                        let a = `
+                        <div class="Prod">
+                            <div class="Side1">
+                                <a href="/products/${d.URL}">
+                                    <img src="${d.Images[0]}" alt="Product Image"></div>
+                                </a>
+                            <div class="Side2">
+                                <h1>
+                                    <a href="/products/${d.URL}">${d.Title}</a>
+                                </h1>
+                                <div class="Pricing">
+                                    <div class="MRPPPP">MRP: Rs.${NumINR(d.MRP)}</div>
+                                    <div class="Sellings">Rs.${NumINR(d.Selling_Price)}</div>
+                                </div>
+                                <div>
+                                    <input id="Files1" type="file">
+                                    <button onclick="Files_Upload(1);" type="button">Upload</button> 
+
+                                    
+                                <div>
+                                    <div>Selected file: <a href="/uploaded_image">View Image</a></div>
+                                    
+                                
+                                </div>
+                                </div>
+                                
+                                <div>
+                                    <button class="delete_cart" id="delete_cart${index+1}" onclick="delete_cart('${d._id}', ${index+1});" type="button">Remove</button>
+                                </div>
+                            </div>
+                        </div>`;
+                        z+=a;
 
 
 
