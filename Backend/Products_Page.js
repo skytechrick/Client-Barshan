@@ -1,7 +1,7 @@
 
 const {Products} = require("./Models.js");
 
-const NumINR = require("./Mod/NumINR.js")
+const NumINR = require("./Mod/NumINR.js");
 
 const Products_Page = async (req, res) => {
 

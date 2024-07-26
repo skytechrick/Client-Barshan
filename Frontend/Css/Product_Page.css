@@ -660,8 +660,29 @@ main {
 
 
 
+#ShareLink {
+    font-size: 13px;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #aaa;
+    margin: 5px 0;
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    transition: 200ms background-color;
+    
+}
 
+#ShareLink:hover {
+    background-color: rgb(216, 216, 216);
+    text-decoration: underline;
+}
 
+#ShareLink:active {
+    border: 1px solid black;
+
+}
 
 
 
