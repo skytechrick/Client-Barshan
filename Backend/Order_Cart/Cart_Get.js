@@ -162,14 +162,12 @@ const Cart_Get = async (req, res) => {
                                 </div>
                                 <div>
                                     <input id="Files1" type="file">
-                                    <button onclick="Files_Upload(1);" type="button">Upload</button> 
+                                    <button onclick="Files_Upload(1);" type="button">Upload</button>
+                                </div>
 
-                                    
+
                                 <div>
                                     <div>Selected file: <a href="/uploaded_image">View Image</a></div>
-                                    
-                                
-                                </div>
                                 </div>
                                 
                                 <div>
