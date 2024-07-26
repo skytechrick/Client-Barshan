@@ -33,18 +33,27 @@ const Order_Page = async(req, res) =>{
                 for (let index = 0; index < LL1.length; index++) {
                     const LL = LL1[index];
                     const P_ID = LL.ID;
-                    console.log(P_ID);
+                    // console.log(P_ID);
                     const Option = LL.Option;
                     for (let gv = 0; gv < Produ.length; gv++) {
                         const product = Produ[gv];
                         if (product._id == P_ID) {
-                            aaaa += `<tr>
-                                    <td> <a href="/products/${product.URL}">${product.Title}</a></td>
-                                    <td>${Option}</td>
-                                    <td>Rs. ${NumINR(product.Selling_Price)}</td>
-                                </tr>`;
-                            break;
-                            
+                            if (product.Category == "Customize Products") {
+                                aaaa += `<tr>
+                                        <td> <a href="/products/${product.URL}">${product.Title}</a></td>
+                                        <td><a href="/uploaded_image/${LL.Filesss}">Image Link</a></td>
+                                        <td>Rs. ${NumINR(product.Selling_Price)}</td>
+                                    </tr>`;
+                                break;
+                                
+                            }else{
+                                aaaa += `<tr>
+                                        <td> <a href="/products/${product.URL}">${product.Title}</a></td>
+                                        <td>${Option}</td>
+                                        <td>Rs. ${NumINR(product.Selling_Price)}</td>
+                                    </tr>`;
+                                break;
+                            }
                         };
                     };
                 };
