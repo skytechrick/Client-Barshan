@@ -19,10 +19,10 @@ const Cart_Get = async (req, res) => {
         let Cart = Auths.Cart;
         if (Cart.length >= 1) {
             let z = "";
+            let data = await Products.find({});
             for (let index = 0; index < Cart.length; index++) {
                 const element1 = Cart[index];
 
-                let data = await Products.find({});
                 let d;
                 let f = 1;
                 for (let sz = 0; sz < data.length; sz++) {
@@ -136,46 +136,79 @@ const Cart_Get = async (req, res) => {
                     }else if (d.Category == "Customize Products"){
 
 
+                        if(element1.Filesss == null || element1.Filesss.length < 5 || element1.Filesss == undefined){
+                            // let Filess = `<a href="/uploaded_image">View Image</a>`
+                            
 
-
-
-
-
-
-
-
+                            let Filess = `No file selected`;
 
                         
-                        let a = `
-                        <div class="Prod">
-                            <div class="Side1">
-                                <a href="/products/${d.URL}">
-                                    <img src="${d.Images[0]}" alt="Product Image"></div>
-                                </a>
-                            <div class="Side2">
-                                <h1>
-                                    <a href="/products/${d.URL}">${d.Title}</a>
-                                </h1>
-                                <div class="Pricing">
-                                    <div class="MRPPPP">MRP: Rs.${NumINR(d.MRP)}</div>
-                                    <div class="Sellings">Rs.${NumINR(d.Selling_Price)}</div>
-                                </div>
-                                <div>
-                                    <input id="Files1" type="file">
-                                    <button onclick="Files_Upload(1);" type="button">Upload</button>
-                                </div>
+                            let a = `
+                            <div class="Prod">
+                                <div class="Side1">
+                                    <a href="/products/${d.URL}">
+                                        <img src="${d.Images[0]}" alt="Product Image"></div>
+                                    </a>
+                                <div class="Side2">
+                                    <h1>
+                                        <a href="/products/${d.URL}">${d.Title}</a>
+                                    </h1>
+                                    <div class="Pricing">
+                                        <div class="MRPPPP">MRP: Rs.${NumINR(d.MRP)}</div>
+                                        <div class="Sellings">Rs.${NumINR(d.Selling_Price)}</div>
+                                    </div>
+                                    <div>
+                                        <input id="Files${index+1}" type="file" accept="image/*">
+                                        <button class="delete_cart" onclick="Files_Upload('${d._id}', ${index+1});" type="button">Upload</button>
+                                    </div>
 
 
-                                <div>
-                                    <div>Selected file: <a href="/uploaded_image">View Image</a></div>
+                                    <div>
+                                        <div>Selected file: ${Filess}</div>
+                                    </div>
+                                    
+                                    <div>
+                                        <button class="delete_cart" id="delete_cart${index+1}" onclick="delete_cart('${d._id}', ${index+1});" type="button">Remove</button>
+                                    </div>
                                 </div>
-                                
-                                <div>
-                                    <button class="delete_cart" id="delete_cart${index+1}" onclick="delete_cart('${d._id}', ${index+1});" type="button">Remove</button>
+                            </div>`;
+                            z+=a;
+                        }else{
+                            
+                            
+                            let Filess = `<a href="/uploaded_image/${element1.Filesss}">View Image</a>`
+                        
+                            let a = `
+                            <div class="Prod">
+                                <div class="Side1">
+                                    <a href="/products/${d.URL}">
+                                        <img src="${d.Images[0]}" alt="Product Image"></div>
+                                    </a>
+                                <div class="Side2">
+                                    <h1>
+                                        <a href="/products/${d.URL}">${d.Title}</a>
+                                    </h1>
+                                    <div class="Pricing">
+                                        <div class="MRPPPP">MRP: Rs.${NumINR(d.MRP)}</div>
+                                        <div class="Sellings">Rs.${NumINR(d.Selling_Price)}</div>
+                                    </div>
+                                    <div>
+                                        <input id="Files${index+1}" type="file" accept="image/*">
+                                        <button class="delete_cart" id="Files_Upload_${index + 1}" onclick="Files_Upload('${d._id}', ${index+1});" type="button">Upload</button>
+                                    </div>
+
+
+                                    <div>
+                                        <div>Selected file: ${Filess}</div>
+                                    </div>
+                                    
+                                    <div>
+                                        <button class="delete_cart" id="delete_cart${index+1}" onclick="delete_cart('${d._id}', ${index+1});" type="button">Remove</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>`;
-                        z+=a;
+                            </div>`;
+                            z+=a;
+                        }
 
 
 

@@ -15,6 +15,7 @@ app.use('/files/css', express.static('../Frontend/Css'));
 app.use('/files/js', express.static('../Frontend/Js'));
 app.use('/files/img', express.static('../Frontend/Img'));
 app.use('/product/img', express.static('../Frontend/Product_Img'));
+app.use('/uploaded_image', express.static('../Frontend/Uploaded_Image'));
 
 // _________________________________________________________________
 const Home = require("./Home/Home");
@@ -77,9 +78,38 @@ app.get("/product/customize_products",require("./Cat/Customize_products_First.js
 
 app.post("/add-to-cart",add_to_cart);
 app.post("/buyNow",require("./Order_Cart/AdBuynow.js"));
-app.get("/cart",Cart_Get);
+
+
+
+
+
+
+
+
+const UserStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, path.join(__dirname, '../Frontend/Uploaded_Image'));
+    },
+    filename: (req, file, cb) => {
+        // console.log(req.body.ID)
+        cb(null, Date.now() +  "_" + Date.now() + 1  + "_" + file.fieldname + file.originalname);
+    }
+});
+const Img_Upload = multer({ storage: UserStorage });
+
+const Img_UploadFinal = Img_Upload.fields([
+    { name: 'File_1', maxCount: 1 },
+]);
+
+
+app.get("/cart", Cart_Get);
+
+
+app.put("/cart/update",Img_UploadFinal, Cart_Update);
+
+
+
 // app.get("/buy_now",require("./Order_Cart/Buy_Now.js"));
-app.put("/cart/update", Cart_Update);
 app.get("/check_out", check_out);
 
 app.get("/order", require("./Order_Cart/Order_Page.js"));

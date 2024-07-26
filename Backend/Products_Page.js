@@ -45,7 +45,5 @@ const Products_Page = async (req, res) => {
     }else{
         res.status(404).send("<center><h1>404 Error - Product Page not found</h1></center>");
     }
-
-
 }
 module.exports = Products_Page;

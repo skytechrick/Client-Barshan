@@ -65,6 +65,57 @@ function delete_cart(n,x){
                 
     });
 
+
+}
+
+
+function Files_Upload(n,x){
+    // document.getElementById(`Files_Upload_${x}`).style.display = "none";
+    let a = document.getElementById(`Files${x}`);
+
+
+    let aa = a.files[0];
+
+    if (aa) {
+        const maxSizeInBytes = 2 * 1024 * 1024;
+        if (aa.size < maxSizeInBytes) {
+            
+            
+            
+            let Data = new FormData();
+            Data.append('File_1', aa);
+            Data.append('ID', n);
+            Data.append('Type', "Files");
+        
+        
+        
+            fetch("/cart/update",{
+                method:"PUT",
+                body: Data
+            }).then(response=>{return response.json();}).then(data=>{
+                console.log(data.Success);
+                if (data.Success == "1") {
+                    location.reload();
+                }else{
+                    Message(data.Success);
+                    setTimeout(() => {
+                        location.reload();
+                        
+                    }, 3000);
+                }
+            }).catch(e=>{
+                Message("Error");
+                
+            });
+        }else{
+            Message("File size must not more then 2MB");
+
+        }    
+    }else{
+        Message("No File Selected");
+
+    }
+
 }
 
 

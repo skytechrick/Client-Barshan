@@ -50,7 +50,54 @@ const add_to_cart = async (req, res) =>{
                     res.status(200).json({Success:0});
                     
                 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }else if (lett == "Customize Products") {
+
+                let a = Auths.Cart;
+                if (a.length <1) {
+                    a =[{ID:element._id, Option:"-",Filesss:""}];
+                    
+                }else{
+                    // a.push({ID:element._id})
+                    a.push({ID:element._id, Option:"-", Filesss:""});
+                }
+                
+                
+
+                await User_Profile.updateOne({_id:Auths._id},{$set:{
+                    Cart:a,
+                }}).then(()=>{
+                    res.status(200).json({Success:1});
+                }).catch(e=>{
+                    res.status(200).json({Success:0});
+                    
+                });
+                        
+
+
+
+
+
+
+
+
+
             }else{
+
                 // console.log(Auths);
 
                 let a = Auths.Cart;
