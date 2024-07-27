@@ -134,7 +134,7 @@ const Placed_Order = async(req, res) =>{
                     fv.push(Add)
                     await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
                     let Price = Pricea;
-                    const Message = `https://api.whatsapp.com/send?phone=919749848292&text=*Hello%2C*%20Sir%0AMy%20Name%20is%2C${Auths.Name}%0AI%20have%20placed%20order%20Successfully.%20%F0%9F%A4%A9%0AThis%20is%20my%20order%20ID%3A%20${ORDER_IDa}%0AAnd%20the%20amount%20is%20Rs%3A%20${Price}%0A%0A%0APlease%20share%20me%20the%20QR%20code%20or%20UPI%20Number%20for%20payment.%0AThank%20you%20for%20considering%20my%20order`;
+                    const Message = `https://api.whatsapp.com/send?phone=919475502506&text=*Hello%2C*%20Sir%0AMy%20Name%20is%2C${Auths.Name}%0AI%20have%20placed%20order%20Successfully.%20%F0%9F%A4%A9%0AThis%20is%20my%20order%20ID%3A%20${ORDER_IDa}%0AAnd%20the%20amount%20is%20Rs%3A%20${Price}%0A%0A%0APlease%20share%20me%20the%20QR%20code%20or%20UPI%20Number%20for%20payment.%0AThank%20you%20for%20considering%20my%20order`;
                     res.status(200).json({Success:"Yes", Link:Message});
                 });
             }
