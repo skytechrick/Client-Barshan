@@ -111,6 +111,9 @@ app.put("/cart/update",Img_UploadFinal, Cart_Update);
 
 // app.get("/buy_now",require("./Order_Cart/Buy_Now.js"));
 app.get("/check_out", check_out);
+app.get("/terms-and-conditions", (req, res)=>{
+    res.status(200).render("TandC");
+});
 
 app.get("/order", require("./Order_Cart/Order_Page.js"));
 app.put("/order", require("./Order_Cart/Placed_Order"));
