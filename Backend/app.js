@@ -125,12 +125,7 @@ app.get("/logout",(req, res)=>{
 });
 
 
-
 app.get("/products/:URL", Products_Page);
-
-
-
-
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
