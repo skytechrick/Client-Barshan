@@ -37,3 +37,19 @@ document.getElementById("ShareLink").addEventListener("click", ()=>{
     });
     
 });
+document.getElementById("ShareLink1").addEventListener("click", ()=>{
+    // document.getElementById("ShareLink").style.transition = "200ms background-color";
+    document.getElementById("ShareLink1").style.backgroundColor = "#00e600";
+    document.getElementById("ShareLink1").innerHTML = "Copied!";
+    
+    // let aA = document.getElementById("product_IMMMf").src;
+    
+    aA = `Check out! This new product \n ${window.location.href} \n`;
+
+    let a = encodeURIComponent(aA);
+
+    let text1 = `https://api.whatsapp.com/send?phone=919749848292&text=${a}`
+    ;
+    window.location.href = text1;
+    
+});

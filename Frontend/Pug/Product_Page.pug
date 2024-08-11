@@ -6,6 +6,10 @@
     <title>#{Title}</title>
     <link rel="stylesheet" href="/files/css/MensWear_First.css">
     <link rel="stylesheet" href="/files/css/Product_Page.css">
+
+    <meta property="og:image" content="#{URL1}"/>
+    <meta property="og:title" content="#{Title}"/>
+    <meta property="og:description" content="Checkout this product"/>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,8 +82,9 @@
                             <button title="Buy Now" class="ADDTOCART ADDTOCAR" onclick="Buy_Now('#{P_ID}')" type="button">Buy Now</button>
                         </div>
                     </div>
-                    <div>
+                    <div style="display: flex; ">
                         <div id="ShareLink">Share Now (Copy link)</div>
+                        <div id="ShareLink1">Share on Whats App</div>
                     </div>
                     <div style="color: #5e5e5e; text-decoration: underline; margin-bottom: 10px;"><b>Product Details:</b></div>
                     <div class="Desss"> !{Description}
