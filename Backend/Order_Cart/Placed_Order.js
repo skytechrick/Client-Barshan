@@ -55,7 +55,7 @@ const Placed_Order = async(req, res) =>{
                     for (let na = 0; na < Produ.length; na++) {
                         const element2 = Produ[na];
                         if (element2._id == ID) {
-                            Pricea+=Number(element2.Selling_Price);
+                            Pricea += Number(element2.Selling_Price);
                             break;
                         }
                     }
@@ -73,6 +73,7 @@ const Placed_Order = async(req, res) =>{
                     Confirmed:"Yes",
                     Date:Date(),
                     Status:"Pending",
+                    Date_Delivery:"Pending",
                 }
                 let xa = new Orders(Add);
                 await xa.save().then( async()=>{
@@ -126,6 +127,7 @@ const Placed_Order = async(req, res) =>{
                     Confirmed:"Yes",
                     Date:Date(),
                     Status:"Payment Pending",
+                    Date_Delivery:"Pending",
                 };
                 
                 let xa = new Orders(Add);

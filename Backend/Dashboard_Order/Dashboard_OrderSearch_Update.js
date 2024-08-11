@@ -11,6 +11,7 @@ const a = async (req, res) =>{
     let pp = req.body.ID;
     // console.log(pp);
     let p1p = req.body.Status;
+    let DeliveryDate = req.body.DeliveryDate;
     // console.log(p1p);
     let array = await User_Profile.find({});
     for (let index = 0; index < array.length; index++) {
@@ -26,10 +27,10 @@ const a = async (req, res) =>{
                     tup = 1;
                     let dc = element;
                     dc["Status"] = p1p;
+                    dc["Date_Delivery"] = DeliveryDate;
                     nett.push(dc);
-                    // break;
                 }else{
-                    nett.push(OrdersUser);
+                    nett.push(element);
 
                 }
                 
@@ -42,7 +43,7 @@ const a = async (req, res) =>{
                 }
             })
             break;
-                        
+            
         }
         
     }
@@ -58,6 +59,8 @@ const a = async (req, res) =>{
 
     await Orders.updateOne({_id:pp},{$set:{
         Status:p1p,
+        
+        Date_Delivery:DeliveryDate,
     }});
     res.status(200).redirect("/Dashboard_Product/Ordersafsdfgedtffgikhweopfhe324idsgfdsgfjkdsfgdsuigfdsgoriy384ty8dfgfdgdfgfd");
 

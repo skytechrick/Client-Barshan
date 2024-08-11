@@ -23,6 +23,7 @@ let order = {
     Date:{type:String},
     Status:{type:String},
     Pricing:{type:String},
+    Date_Delivery:{type:String},
 }
 
 let database = {

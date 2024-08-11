@@ -1,4 +1,7 @@
 require('dotenv').config();
+
+const HIHI = "ZIPBUY - 1.4.2.apk";
+
 const express = require("express");
 const path = require("path");
 const app = express();
@@ -149,6 +152,58 @@ const uploadMiddleware1 = Photo_Upload.fields([
 ]);
 
 app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
+
+app.post("/app_download",(req, res)=>{
+    const filePath = path.join(__dirname, 'APP', HIHI);
+    res.download(filePath, 'ZIPBUY - 1.4.2.apk', (err) => {
+        if (err) {
+            console.error('File download failed:', err);
+            res.status(500).send('Error downloading the file.');
+        }
+    });
+
+});
+app.get("/app_download",(req, res)=>{
+    res.status(200).send(`
+        <style>
+            .cen{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                flex-direction: column;    
+            }
+            .cent{
+                border: 1px solid rgb(118, 118, 118);
+                padding: 15px;
+                box-lines:  0 0 10px #aaa;
+                background-color: rgb(192, 235, 255);
+                font-weight: bold;
+                cursor: pointer;
+                transition: 200ms background-color;
+                border-radius: 40px;
+                
+            }
+            .cent:hover{
+                background-color: rgb(74, 198, 255);
+
+            }
+            #Wait {
+                display: none;
+            }
+        </style>
+
+        <form class="cen" action="/app_download" method="post">
+            <h1>ZIPBUY</h1>
+            <button class="cent" type="submit" onclick="document.getElementById('Wait').style.display = 'block'">Download now</button>
+            <h1>ZIPBUY</h1>
+            <p id="Wait">Please wait</p>
+
+        </form>
+        `);
+
+});
 
 app.post("/dashboard_product/add", uploadMiddleware1,Dashboard_Product_Post);
 

@@ -38,7 +38,8 @@ function Final_BTN(n) {
             window.location.replace(data.Link);
             
         }else if(data.Success == "Logout"){
-            location.reload();
+            window.location.replace("/");
+            // location.reload();
         }else{
             Message("Unable to place order");
             

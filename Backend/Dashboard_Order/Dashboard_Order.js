@@ -56,7 +56,7 @@ const Dashboard_Order = async (req, res) => {
             };
             Girl += `
                 <div class="Products">
-                    <h3 style="margin: 7px 4px;">Order ID: ${OrderPart._id}</h3>
+                    <h3 style="margin: 7px 4px;">Order ID: ${OrderPart._id} ||  Delivery Date: ${OrderPart.Date_Delivery}</h3>
                     <h5 style="margin: 7px 4px;"><b>Name:</b> ${OrderPart.Name}</h5>
                     <address style="margin: 7px 4px;"><b>Address:</b><br> ${OrderPart.Address}</address>
                     <div style="margin: 7px 4px;"><b>PIN:</b> ${OrderPart.PIN}</div>

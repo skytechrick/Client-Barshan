@@ -33,8 +33,14 @@
 
         <form action="/Dashbord/order/update" method="post">
             <input type="text" value="#{ID}" id="ID" style="display: none;" name="ID">
-
+            <label for="Status">Change Status:</label>
             <input type="text" value="#{Status}" placeholder="Change status" id="Status" name="Status">
+            <br>
+            <label for="DeliveryDate">DeliveryDate:</label>
+            <input type="text" value="#{DeliveryDate}" placeholder="Delivery Date" id="DeliveryDate" name="DeliveryDate">
+            <br>
+            <br>
+            <br>
             <button type="submit">change</button>
             
         </form>

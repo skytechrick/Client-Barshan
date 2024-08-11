@@ -14,7 +14,8 @@ const Order_Page = async(req, res) =>{
     let Auths = await User_Auth(cook);
     if (Auths != null) {
 
-        let Ordersa = await Orders.find({});
+        // let Ordersa = await Orders.find({});
+        let Ordersa = Auths.Orders;
         
         if(Ordersa == [] || Ordersa == null || Ordersa.length < 1){
             
@@ -24,10 +25,12 @@ const Order_Page = async(req, res) =>{
             res.status(200).render("Order_Page", dc);
             
         }else{
+            
             let Girl = "";
             let Produ = await Products.find({});
             for (let g = 0; g < Ordersa.length; g++) {
                 let OrderPart = Ordersa[g];
+                
                 let LL1 = OrderPart.Products[0];
                 let aaaa = "";
                 for (let index = 0; index < LL1.length; index++) {
@@ -59,7 +62,7 @@ const Order_Page = async(req, res) =>{
                 };
                 Girl += `
                     <div class="Products">
-                        <h3 style="margin: 7px 4px;">Order ID: ${OrderPart._id}</h3>
+                        <h3 style="margin: 7px 4px;">Order ID: ${OrderPart._id}  ||  Delivery Date: ${OrderPart.Date_Delivery}</h3>
                         <table>
                             <tr style="border-bottom: 1px solid #aaa;">
                                 <td style="font-weight: bold;">Products:</td>
@@ -91,9 +94,6 @@ const Order_Page = async(req, res) =>{
         }
 
 
-
-
-        // res.status(200).render("Order_Page");
     }else{
         res.clearCookie("ID");
         res.status(200).redirect("/login");
