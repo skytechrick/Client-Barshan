@@ -80,7 +80,7 @@ const Placed_Order = async(req, res) =>{
                     let fv = Auths.Orders;
                     fv.push(Add);
                     await User_Profile.updateOne({_id:Auths._id},{$set:{Cart:[],Orders:fv}});
-                    const Message = `https://zipbuy.in/order`;
+                    const Message = `http://localhost/order`;
                     res.status(200).json({Success:"Paid", Link:Message});
                 });
             }else{
