@@ -304,6 +304,16 @@ const Cart_Get = async (req, res) => {
                 let a = {
                     Products:z,
                     PROO:`<a id="Check_out" href="/check_out">Check out</a>`,
+                    NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,
 
                 }
                 res.status(200).render("Cart_Page",a);
@@ -312,6 +322,16 @@ const Cart_Get = async (req, res) => {
                 res.status(200).render("Cart_Page",{
                     Products:"<center>Your Cart is Empty.</center>",
                     PROO:"",
+                    NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,
                 });
                 
             }
@@ -320,6 +340,16 @@ const Cart_Get = async (req, res) => {
             res.status(200).render("Cart_Page",{
                 Products:"<center>Your Cart is Empty.</center>",
                 PROO:"",
+                NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,
             });
             
         }        

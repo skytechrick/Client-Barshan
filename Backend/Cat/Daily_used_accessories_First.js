@@ -4,6 +4,8 @@ const NumINR = require("../Mod/NumINR.js");
 const {Products} =  require("../Models.js");
 
 
+const User_Auth = require("../User_Auth.js");
+
 const Daily_used_accessories_First = async (req, res) => {
 
 
@@ -47,7 +49,31 @@ const Daily_used_accessories_First = async (req, res) => {
             fin+=data;
         }
     };
-    res.status(200).render("Daily_Used_First",{P:fin});
-    // Mens_collection_Img.jpg
+    let cook = req.cookies.ID;
+    let Auths = await User_Auth(cook);
+
+    if (Auths != null) {
+        let Login = `
+            <div id="CatM">
+                <a href="/order">Order</a>
+            </div>
+            <div id="INNSTSTR6">
+                <a href="/cart">Cart</a>
+            </div>
+            <div id="INNSTSTR7">
+                <a href="/logout">Logout</a>
+            </div>
+            `;
+        res.status(200).render("Daily_Used_First",{P:fin, NAV: Login});
+        
+    }else{ 
+        let a = `
+        <div id="INNSTSTR6">
+        <a href="/login">Login</a>
+        </div>`;
+        res.clearCookie("ID");
+        res.status(200).render("Daily_Used_First",{P:fin, NAV: a});
+
+    }
 }
 module.exports = Daily_used_accessories_First;

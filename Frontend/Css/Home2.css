@@ -132,18 +132,24 @@ body {
 
 
 .productStart {
-
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    width: 300px;
+    
+    width: 150px;
     /* height: 350px; */
     margin: 10px;
+}
+.productStart > a:nth-child(1){
+    width: 100%;
+    height: fit-content;
+    display: block;
     box-shadow: 0 0 10px #aaa;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+
 }
 
 .productStart img{
-    border-radius: 8px;
     width: 100%;
+    border-radius: 50%;
 }
 
 .P_Title {
@@ -155,6 +161,7 @@ body {
 .P_Title a{
     color: black;
     text-decoration: none;
+    font-size: 13px;
 }
 
 .P_Title a:hover{
@@ -186,19 +193,34 @@ body {
     }
     .productStart {   
         font-size: 18px;
-        width: 250px;
-        height: 310px;
+        width: 150px;
+        margin: 3px;
+        /* height: 310px; */
     }
 }
 
 @media screen and (max-width: 647px) {
     .Main_Cew  {
-        justify-content: center;
+        padding: 5px;
+        justify-content: space-evenly;
+
+    
     }
 
 }
 
+@media screen and (max-width: 392px) {
+    .Main_Cew {
+        padding: 5px;
+        justify-content: space-evenly;
+
+    }
+    .productStart {
+        width: 120px;
+    }
+}
 @media screen and (max-width: 780px) {
+
     .cetn {
         flex-direction: column;    
         height: 30px;
@@ -217,14 +239,16 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
+    .cetn {
+        width: 98%;
+    }
 }
 
-@media screen and (max-width: 617px) {
+/* @media screen and (max-width: 617px) {
     #CatM {
         display: none;
     }
-}
+} */
 
 @media screen and (max-width: 530px) {
     
@@ -292,10 +316,10 @@ body {
         -webkit-tap-highlight-color: transparent;
     }
     #INNSTSTR1,
-    #INNSTSTR2,
-    #INNSTSTR3,
+    /* #INNSTSTR2, */
     #INNSTSTR4,
     #CatM,
+    #INNSTSTR7,
     #INNSTSTR6{
         padding: 20px 0px;
         display: none;
@@ -397,7 +421,7 @@ footer {
         flex-direction: row;
         align-items: center;
         height: auto;
-        width: 100%;
+        width: 130px;
     };
     .P_Title {
         margin-right: 6px;

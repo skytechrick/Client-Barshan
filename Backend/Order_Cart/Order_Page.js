@@ -88,6 +88,16 @@ const Order_Page = async(req, res) =>{
             }
             let dc = {
                 In:Girl,
+                NAV:`<div id="CatM">
+                        <a href="/order">Order</a>
+                    </div>
+                    <div id="INNSTSTR6">
+                        <a href="/cart">Cart</a>
+                    </div>
+                    <div id="INNSTSTR7">
+                        <a href="/logout">Logout</a>
+                    </div>
+                    ;`,
             }
             res.status(200).render("Order_Page", dc);
 

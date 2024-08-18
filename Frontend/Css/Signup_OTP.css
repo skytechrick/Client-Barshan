@@ -2,11 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
-<<<<<<< Updated upstream
-    background-image: url("http://localhost/files/img/BacKc2.jpg");
-=======
-    background-image: url("http://localhost/files/img/BacKc2.jpg");
->>>>>>> Stashed changes
+    background-image: url("/files/img/BacKc2.jpg");
     background-size: cover;
     background-repeat: 0;
     background-position: 0%;

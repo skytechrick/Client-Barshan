@@ -76,6 +76,16 @@ const check_out = async (req, res) =>{
                         Discount:NumINR(MMP - Grand_TOTAL),
                         Address:Auths.Name +"<br>" +Auths.Mobile_Number + "<br>" + Auths.Address,
                         PIN:Auths.PIN,
+                        NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                            </div>
+                            <div id="INNSTSTR6">
+                                <a href="/cart">Cart</a>
+                            </div>
+                            <div id="INNSTSTR7">
+                                <a href="/logout">Logout</a>
+                            </div>
+                            ;`,
                     }
                     res.status(200).render("CheckOut_Page.pug",fg);
                 }else{

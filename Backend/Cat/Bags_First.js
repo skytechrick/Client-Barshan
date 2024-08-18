@@ -4,8 +4,12 @@ const NumINR = require("../Mod/NumINR.js");
 const {Products} =  require("../Models.js");
 
 
+const User_Auth = require("../User_Auth.js");
+
 const Bags_First = async (req, res) => {
 
+    let cook = req.cookies.ID;
+    let Auths = await User_Auth(cook);
 
     let All = await Products.find({});
     let fin = "";
@@ -24,6 +28,7 @@ const Bags_First = async (req, res) => {
             let P_ID = element._id;
 
             let data = `
+
                 <div class="productStart">
                     <a href="/products/${Product_Url}">
                         <img src="${Product_Image}" alt="Product Image">
@@ -43,11 +48,32 @@ const Bags_First = async (req, res) => {
                     <div class="price">
                         <button title="Buy Now" class="ADDTOCART ADDTOCAR" onclick="Buy_Now('${P_ID}')" type="button">Buy Now</button>
                     </div>
-                </div>`;
-            fin+=data;
+                </div>
+                `;
+            fin += data;
         }
     };
-    res.status(200).render("Bags_First",{P:fin});
-    // Mens_collection_Img.jpg
+    if (Auths != null) {
+        let Login = `
+            <div id="CatM">
+                <a href="/order">Order</a>
+            </div>
+            <div id="INNSTSTR6">
+                <a href="/cart">Cart</a>
+            </div>
+            <div id="INNSTSTR7">
+                <a href="/logout">Logout</a>
+            </div>
+            `;
+        res.status(200).render("Bags_First",{P:fin, NAV: Login});
+        
+    }else{ 
+        let a = `
+        <div id="INNSTSTR6">
+        <a href="/login">Login</a>
+        </div>`;
+        res.clearCookie("ID");
+        res.status(200).render("Bags_First",{P:fin, NAV: a});
+    }
 }
 module.exports = Bags_First;

@@ -1,0 +1,56 @@
+
+
+.Section2 {
+    width: 90%;
+    box-shadow: 0 0 10px #aaa;
+    margin: 40px auto;
+    /* height: 200px; */
+    padding: 10px;
+}
+
+
+
+
+.productStart1 {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    width: 300px;
+    /* height: 350px; */
+    margin: 10px;
+    box-shadow: 0 0 10px #aaa;
+}
+
+.productStart1 img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.P_Title1 {
+    padding: 0 5px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.P_Title1 a {
+    color: black;
+    text-decoration: none;
+}
+
+.P_Title1 a:hover {
+    text-decoration: underline;
+    /* text-shadow: 0 0 1px rgb(96, 255, 247); */
+}
+
+.price1 {
+    /* margin: 0; */
+    justify-content: left;
+}
+
+button.ADDTOCART1 {
+    /* Add any button-specific styles here if needed */
+}
+
+button.ADDTOCAR1 {
+    /* Add any button-specific styles here if needed */
+}

@@ -20,14 +20,44 @@ const Profile_Page = async(req, res) =>{
                 a = a.replace(/<br>/g, '\n');
                 let c = Auths.PIN;
 
-                res.status(200).render("Profile_Page",{Assd:a, PIN:c, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
+                res.status(200).render("Profile_Page",{Assd:a, PIN:c, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number, 
+                    NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,});
                 
             }else{
-                res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
+                res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number, 
+                    NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,});
                 
             }
         }else{
-            res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number});
+            res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number, 
+                NAV:`<div id="CatM">
+                            <a href="/order">Order</a>
+                        </div>
+                        <div id="INNSTSTR6">
+                            <a href="/cart">Cart</a>
+                        </div>
+                        <div id="INNSTSTR7">
+                            <a href="/logout">Logout</a>
+                        </div>
+                        ;`,});
             
         }
     }else{ 

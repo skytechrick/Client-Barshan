@@ -1,11 +1,9 @@
 
+const User_Auth = require("./User_Auth.js");
 
 
-const User_Auth = require("../User_Auth.js");
-
-const Home = async (req, res) => {
-
-    // res.status(200).render("Home");
+const t = async (req, res)=>{
+    // res.status(200).render("TandC");
     
     let cook = req.cookies.ID;
     let Auths = await User_Auth(cook);
@@ -22,7 +20,7 @@ const Home = async (req, res) => {
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("Home",{NAV: Login});
+        res.status(200).render("TandC",{NAV: Login});
         
     }else{ 
         let a = `
@@ -30,9 +28,9 @@ const Home = async (req, res) => {
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("Home",{NAV: a});
+        res.status(200).render("TandC",{NAV: a});
 
     }
 }
 
-module.exports = Home;
+module.exports = t;

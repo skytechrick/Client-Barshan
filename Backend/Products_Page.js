@@ -3,6 +3,8 @@ const {Products} = require("./Models.js");
 
 const NumINR = require("./Mod/NumINR.js");
 
+const User_Auth = require("./User_Auth.js");
+
 const Products_Page = async (req, res) => {
 
     let URL = req.params.URL;
@@ -40,8 +42,18 @@ const Products_Page = async (req, res) => {
             Selling_Price: NumINR(Pro.Selling_Price),
             Im: Imss,
             URL1:URL1,
+            NAV:`<div id="CatM">
+                    <a href="/order">Order</a>
+                </div>
+                <div id="INNSTSTR6">
+                    <a href="/cart">Cart</a>
+                </div>
+                <div id="INNSTSTR7">
+                    <a href="/logout">Logout</a>
+                </div>
+                ;`,
         }
-        res.status(404).render("Product_Page", KL);
+        res.status(200).render("Product_Page", KL);
     }else{
         res.status(404).send("<center><h1>404 Error - Product Page not found</h1></center>");
     }

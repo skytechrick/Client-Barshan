@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/files/img/Logo.webp" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/files/css/Home2.css">
+    <link rel="stylesheet" href="/files/css/HomeNew.css">
 
     <meta name="description" content="Indian Ecommerce website (ZIPBUY), this website provides you good and services, you can buy the products from our platform we will deliver the product within the given time.">
     <meta name="keywords" content="ZIPBUY, zipbuy, localhost, zipbuy online shopping">
@@ -162,54 +163,39 @@
         </main>
     </section>
 
-    <footer> 
-        <div class="Fott">
-            <div class="Fo1">
-                <center><u>Social media</u></center>
-                <center>
-                    <a href="https://www.instagram.com/zipbuy_official_?igsh=d2Nka2JvaXp5cjA4" target="_blank">Instagram</a>
-                </center>
-                <center>
-                    <a href="https://www.facebook.com/profile.php?id=61563199102442&mibextid=ZbWKwL" target="_blank">Facebook</a>
-                </center>
-                <center>
-                    <a href="https://wa.me/919475502506" target="_blank">WhatsApp</a>
-                </center>
-                
-            </div>
-            <div class="Fo1">
-                <center><u>About Us</u></center>
-                <center>
-                    <a href="/terms-and-conditions" target="_blank">Terms And Conditions</a>
-                </center>
-                <center>
-                    <a href="/app_download" target="_blank">Download app</a>
-                </center>
-                
-                
-            </div>
-            <div class="Fo1">
-                <center><u>Know us</u></center>
-                <center>
-                    <a href="https://wa.me/919475502506" target="_blank">Contact Us</a>
-                </center>
-                <center>
-                    <a href="mailto:info@localhost" target="_blank">Email Us</a>
-                </center>
-                <center>
-                    <a href="tel:+919475502506" target="_blank">Call us</a>
-                </center>
-                
-            </div>
 
+
+    <section class="Section2">
+        <div class="productStart1">
+            <a href="/products/${Product_Url}">
+                <img src="/product/img/1721391367039_File_1_Picsart_24-07-19_17-35-32-640.webp" alt="Product Image">
+            </a>
+            <h2 class="P_Title1">
+                <!-- <a href="/products/${Product_Url}"><center>${Title}</center></a> -->
+                <a href="/products/${Product_Url}"><center>Realme 10 pro plus 5G | 108MP camera | 5000mAh Battery</center></a>
+            </h2>
+            <div class="price1 kl1 TYTYT1">
+                <!-- <div>MRP: ${MRP}</div> -->
+                <div>MRP: 12,999</div>
+            </div>
+            <div class="price1 TYTYT1">
+                <!-- <div>Rs. ${Sell}</div> -->
+                <div>Rs. 10,999</div>
+            </div>
+            <div class="price1">
+                <button title="Add to cart" class="ADDTOCART1" onclick="Add_to_Cart('${P_ID}')" type="button">Add to cart</button>
+            </div>
+            <div class="price1">
+                <button title="Buy Now" class="ADDTOCART1 ADDTOCAR1" onclick="Buy_Now('${P_ID}')" type="button">Buy Now</button>
+            </div>
         </div>
-        <div>
-            |   Copyright &copy; All Rights Reserved
-        </div>
-            
+        
+    </section>
 
 
-    </footer>
+
+
+    include Footer.pug
     <script src="/files/js/Home.js"></script>
 </body>
 </html>
