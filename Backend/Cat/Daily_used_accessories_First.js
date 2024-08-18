@@ -64,7 +64,7 @@ const Daily_used_accessories_First = async (req, res) => {
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("Daily_Used_First",{P:fin, NAV: Login});
+        res.status(200).render("Daily_Used_First",{P:fin, NAV: Login, Script1:"HomeLog"});
         
     }else{ 
         let a = `
@@ -72,7 +72,7 @@ const Daily_used_accessories_First = async (req, res) => {
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("Daily_Used_First",{P:fin, NAV: a});
+        res.status(200).render("Daily_Used_First",{P:fin, NAV: a, Script1:"Home"});
 
     }
 }

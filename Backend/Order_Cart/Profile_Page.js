@@ -30,7 +30,10 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,});
+                        ;`,
+                        
+                    Script1:"Home"
+                    });
                 
             }else{
                 res.status(200).render("Profile_Page",{Assd: "", PIN:Auths.PIN, Name:Auths.Name, Email:Auths.Email, Mob:Auths.Mobile_Number, 
@@ -43,7 +46,9 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,});
+                        ;`,
+                    
+                    Script1:"Home"});
                 
             }
         }else{
@@ -57,7 +62,10 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,});
+                        ;`,
+                    
+                Script1:"Home"
+            });
             
         }
     }else{ 

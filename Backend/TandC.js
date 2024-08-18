@@ -20,7 +20,7 @@ const t = async (req, res)=>{
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("TandC",{NAV: Login});
+        res.status(200).render("TandC",{NAV: Login, Script1:"HomeLog"});
         
     }else{ 
         let a = `
@@ -28,7 +28,7 @@ const t = async (req, res)=>{
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("TandC",{NAV: a});
+        res.status(200).render("TandC",{NAV: a, Script1:"Home"});
 
     }
 }

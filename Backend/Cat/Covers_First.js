@@ -66,7 +66,7 @@ const Covers_First = async (req, res) => {
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("back_cover_collections",{P:fin, NAV: Login});
+        res.status(200).render("back_cover_collections",{P:fin, NAV: Login, Script1:"HomeLog"});
         
     }else{ 
         let a = `
@@ -74,7 +74,7 @@ const Covers_First = async (req, res) => {
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("back_cover_collections",{P:fin, NAV: a});
+        res.status(200).render("back_cover_collections",{P:fin, NAV: a, Script1:"Home"});
 
     }
     

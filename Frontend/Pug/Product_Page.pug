@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/files/css/MensWear_First.css">
     <link rel="stylesheet" href="/files/css/Product_Page.css">
 
+    <link rel="stylesheet" href="/files/css/Home2.css">
+    <link rel="stylesheet" href="/files/css/HomeNew.css">
     <meta property="og:title" content="#{Title}"/>
     <meta property="og:description" content="Checkout this product"/>
     <meta property="og:type" content="website"/>
@@ -90,7 +92,6 @@
                     </div>
                     <div style="display: flex; ">
                         <div id="ShareLink">Share Now (Copy link)</div>
-                        <div id="ShareLink1">Share on Whats App</div>
                     </div>
                     <div style="color: #5e5e5e; text-decoration: underline; margin-bottom: 10px;"><b>Product Details:</b></div>
                     <div class="Desss"> !{Description}
@@ -109,12 +110,20 @@
 
 
         </section>
-        //- <section>
-
-        //- </section>
+        
     </main>
+    
+    
 
+    
 
+    <section class="Section2">
+        <h3 class="main2">Related products</h3>
+        <main class="main1">
+
+            | !{ProductSuggest}
+        </main>
+    </section>
 
 
 
@@ -125,7 +134,6 @@
 
     include Footer.pug
     
-    <script src="/files/js/Home.js"></script>
     <script src="/files/js/Products_Page.js"></script>
     <script src="/files/js/MensWear_First.js"></script>
 </body>

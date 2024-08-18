@@ -88,7 +88,6 @@ app.post("/buyNow",require("./Order_Cart/AdBuynow.js"));
 
 
 
-
 const UserStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, path.join(__dirname, '../Frontend/Uploaded_Image'));

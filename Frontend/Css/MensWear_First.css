@@ -389,7 +389,8 @@ body {
     #INNSTSTR3,
     #INNSTSTR4,
     #CatM,
-    #INNSTSTR6{
+    #INNSTSTR6,
+    #INNSTSTR7{
         padding: 20px 0px;
         display: none;
     }

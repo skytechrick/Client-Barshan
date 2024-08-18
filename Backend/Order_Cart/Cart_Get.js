@@ -314,6 +314,8 @@ const Cart_Get = async (req, res) => {
                             <a href="/logout">Logout</a>
                         </div>
                         ;`,
+                    Script1:"Home"
+                        
 
                 }
                 res.status(200).render("Cart_Page",a);
@@ -332,6 +334,7 @@ const Cart_Get = async (req, res) => {
                             <a href="/logout">Logout</a>
                         </div>
                         ;`,
+                    Script1:"Home"
                 });
                 
             }
@@ -350,6 +353,7 @@ const Cart_Get = async (req, res) => {
                             <a href="/logout">Logout</a>
                         </div>
                         ;`,
+                Script1:"Home"
             });
             
         }        

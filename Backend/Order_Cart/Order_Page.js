@@ -21,6 +21,7 @@ const Order_Page = async(req, res) =>{
             
             let dc = {
                 In:"Your order Page is Empty",
+                Script1:"Home"
             }
             res.status(200).render("Order_Page", dc);
             
@@ -98,6 +99,7 @@ const Order_Page = async(req, res) =>{
                         <a href="/logout">Logout</a>
                     </div>
                     ;`,
+                Script1:"Home"
             }
             res.status(200).render("Order_Page", dc);
 

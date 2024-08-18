@@ -65,7 +65,7 @@ const Bags_First = async (req, res) => {
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("Bags_First",{P:fin, NAV: Login});
+        res.status(200).render("Bags_First",{P:fin, NAV: Login, Script1:"HomeLog"});
         
     }else{ 
         let a = `
@@ -73,7 +73,7 @@ const Bags_First = async (req, res) => {
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("Bags_First",{P:fin, NAV: a});
+        res.status(200).render("Bags_First",{P:fin, NAV: a, Script1:"Home"});
     }
 }
 module.exports = Bags_First;

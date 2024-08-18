@@ -166,36 +166,17 @@
 
 
     <section class="Section2">
-        <div class="productStart1">
-            <a href="/products/${Product_Url}">
-                <img src="/product/img/1721391367039_File_1_Picsart_24-07-19_17-35-32-640.webp" alt="Product Image">
-            </a>
-            <h2 class="P_Title1">
-                <!-- <a href="/products/${Product_Url}"><center>${Title}</center></a> -->
-                <a href="/products/${Product_Url}"><center>Realme 10 pro plus 5G | 108MP camera | 5000mAh Battery</center></a>
-            </h2>
-            <div class="price1 kl1 TYTYT1">
-                <!-- <div>MRP: ${MRP}</div> -->
-                <div>MRP: 12,999</div>
-            </div>
-            <div class="price1 TYTYT1">
-                <!-- <div>Rs. ${Sell}</div> -->
-                <div>Rs. 10,999</div>
-            </div>
-            <div class="price1">
-                <button title="Add to cart" class="ADDTOCART1" onclick="Add_to_Cart('${P_ID}')" type="button">Add to cart</button>
-            </div>
-            <div class="price1">
-                <button title="Buy Now" class="ADDTOCART1 ADDTOCAR1" onclick="Buy_Now('${P_ID}')" type="button">Buy Now</button>
-            </div>
-        </div>
-        
+        <main class="main1">
+
+            | !{ProductSuggest}
+        </main>
     </section>
 
 
 
 
     include Footer.pug
-    <script src="/files/js/Home.js"></script>
+    
+    <script src="/files/js/MensWear_First.js"></script>
 </body>
 </html>

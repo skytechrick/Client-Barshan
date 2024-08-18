@@ -1,9 +1,9 @@
 
-const NumINR = require("../Mod/NumINR.js");
 
 const User_Auth = require("../User_Auth.js");
 
 const {Products} =  require("../Models.js");
+const NumINR = require("../Mod/NumINR.js");
 
 
 const MensWear_First = async (req, res) => {
@@ -68,7 +68,7 @@ const MensWear_First = async (req, res) => {
                 <a href="/logout">Logout</a>
             </div>
             `;
-        res.status(200).render("MensWear_First",{P:fin, NAV: Login});
+        res.status(200).render("MensWear_First",{P:fin, NAV: Login, Script1:"HomeLog"});
         
     }else{ 
         let a = `
@@ -76,7 +76,7 @@ const MensWear_First = async (req, res) => {
         <a href="/login">Login</a>
         </div>`;
         res.clearCookie("ID");
-        res.status(200).render("MensWear_First",{P:fin, NAV: a});
+        res.status(200).render("MensWear_First",{P:fin, NAV: a, Script1:"Home"});
 
     }
 }

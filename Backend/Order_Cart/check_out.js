@@ -86,8 +86,9 @@ const check_out = async (req, res) =>{
                                 <a href="/logout">Logout</a>
                             </div>
                             ;`,
+                        Script1:"Home"
                     }
-                    res.status(200).render("CheckOut_Page.pug",fg);
+                    res.status(200).render("CheckOut_Page",fg);
                 }else{
                     res.status(200).redirect("/cart");
                 }
