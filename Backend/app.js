@@ -55,11 +55,11 @@ const Products_Page = require("./Products_Page.js");
 
 
 
-app.get("/",Home)
+app.get("/",Home);
 
 
-app.get("/signup",Get_Signup_User)
-app.post("/signup",Post_Signup_User)
+app.get("/signup",Get_Signup_User);
+app.post("/signup",Post_Signup_User);
 app.get("/signup/otp",Post_Signup_OTP_User);
 app.post("/signup/otp",OTP_VERIF_Sign);
 
@@ -94,10 +94,10 @@ const UserStorage = multer.diskStorage({
         cb(null, path.join(__dirname, '../Frontend/Uploaded_Image'));
     },
     filename: (req, file, cb) => {
-        // console.log(req.body.ID)
         cb(null, Date.now() +  "_" + Date.now() + 1  + "_" + file.fieldname + file.originalname);
     }
 });
+
 const Img_Upload = multer({ storage: UserStorage });
 
 const Img_UploadFinal = Img_Upload.fields([
@@ -127,7 +127,7 @@ app.put("/profile/update", Profile_Update);
 
 app.get("/logout",(req, res)=>{
     res.clearCookie("ID");
-    res.status(200).redirect("/login")
+    res.status(200).redirect("/login");
 });
 
 
@@ -148,7 +148,7 @@ const uploadMiddleware1 = Photo_Upload.fields([
     { name: 'File_2', maxCount: 1 },
     { name: 'File_3', maxCount: 1 },
     { name: 'File_4', maxCount: 1 },
-    { name: 'File_5', maxCount: 1 }
+    { name: 'File_5', maxCount: 1 },
 ]);
 
 app.get("/Dashboard_Product/adddfgkujsdgskdggdsgfdsgfdgfgdsjfgsdjfgdsfgdklsgfgfksdgfsdjgfgfdjgfdgfjkdgfjdsgjfkdsgfjgsdfjsdfgdsklfdsfsdafgjsdfl",Dashboard_Product);
@@ -159,10 +159,10 @@ app.post("/app_download",(req, res)=>{
         if (err) {
             console.error('File download failed:', err);
             res.status(500).send('Error downloading the file.');
-        }
+        };
     });
+1});
 
-});
 app.get("/app_download",(req, res)=>{
     res.status(200).send(`
         <style>
