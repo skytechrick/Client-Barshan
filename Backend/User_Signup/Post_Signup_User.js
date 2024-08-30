@@ -19,7 +19,7 @@ const Transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: 'account@localhost',
+      user: 'account@zipbuy.in',
       pass: '1234Zipbuy@#*'
     }
   });
@@ -228,7 +228,7 @@ const Post_Signup_User = async(req,res)=>{
 
 
                             const Mail_Option = {
-                                from: 'Congratulations <account@localhost>',
+                                from: 'Congratulations <account@zipbuy.in>',
                                 to: Email1,
                                 subject: 'Email verification | OTP | ZIPBUY', 
                                 html: MAILSENT,

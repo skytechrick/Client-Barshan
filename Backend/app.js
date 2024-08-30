@@ -77,6 +77,28 @@ app.get("/product/jewellery",require("./Cat/Jewellery_First.js"));
 app.get("/product/bags",require("./Cat/Bags_First.js"));
 app.get("/product/daily_used_accessories",require("./Cat/Daily_used_accessories_First.js"));
 app.get("/product/customize_products",require("./Cat/Customize_products_First.js"));
+app.get("/product/cake",require("./Cat/Cake.js"));
+app.get("/product/drinks",require("./Cat/Drinks.js"));
+
+app.get("/product/food/",require("./Cat/Food/Home.js"));
+app.get("/product/food/swapan_restaurant",require("./Cat/Food/Swapan_Restaurant.js"));
+app.get("/product/food/pizza_point_kitchen",require("./Cat/Food/pizza_point_kitchen.js"));
+app.get("/product/food/petuk_restaurant",require("./Cat/Food/petuk_restaurant.js"));
+app.get("/product/food/friedwala",require("./Cat/Food/friedwala.js"));
+app.get("/product/food/7th_heaven",require("./Cat/Food/7th_heaven.js"));
+app.get("/product/food/shankha_restaurant",require("./Cat/Food/shankha_restaurant.js"));
+app.get("/product/food/kohili_masala_kitchen",require("./Cat/Food/kohili_masala_kitchen.js"));
+
+app.get("/product/grocery",require("./Cat/grocery/Home.js"));
+app.get("/product/grocery/dal_ata",require("./Cat/grocery/dal_ata.js"));
+app.get("/product/grocery/tea_coffee",require("./Cat/grocery/tea_coffee.js"));
+app.get("/product/grocery/masala_oil",require("./Cat/grocery/masala_oil.js"));
+app.get("/product/grocery/sugar_salt",require("./Cat/grocery/sugar_salt.js"));
+app.get("/product/grocery/tooth_brush_paste",require("./Cat/grocery/tooth_brush_paste.js"));
+app.get("/product/grocery/milk",require("./Cat/grocery/milk.js"));
+app.get("/product/grocery/rice",require("./Cat/grocery/rice.js"));
+app.get("/product/grocery/biscuit_noodles",require("./Cat/grocery/biscuit_noodles.js"));
+
 
 
 app.post("/add-to-cart",add_to_cart);
@@ -127,7 +149,6 @@ app.get("/logout",(req, res)=>{
     res.status(200).redirect("/login");
 });
 
-
 app.get("/products/:URL", Products_Page);
 
 const storage = multer.diskStorage({
@@ -136,7 +157,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         cb(null,  Date.now() +  "_" + file.fieldname + '_'  + file.originalname);
-    }
+    },
 });
 const Photo_Upload = multer({ storage: storage });
 
@@ -154,7 +175,7 @@ app.post("/app_download",(req, res)=>{
     const filePath = path.join(__dirname, 'APP', HIHI);
     res.download(filePath, 'ZIPBUY - 1.4.2.apk', (err) => {
         if (err) {
-            console.error('File download failed:', err);
+            // console.error('File download failed:', err);
             res.status(500).send('Error downloading the file.');
         };
     });

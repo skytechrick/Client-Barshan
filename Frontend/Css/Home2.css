@@ -140,7 +140,9 @@ body {
 .productStart > a:nth-child(1){
     width: 100%;
     height: fit-content;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0 0 10px #aaa;
     border-radius: 50%;
     border: 1px solid #aaa;
