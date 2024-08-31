@@ -30,7 +30,7 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,
+                        `,
                         
                     Script1:"Home"
                     });
@@ -46,7 +46,7 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,
+                        `,
                     
                     Script1:"Home"});
                 
@@ -62,7 +62,7 @@ const Profile_Page = async(req, res) =>{
                         <div id="INNSTSTR7">
                             <a href="/logout">Logout</a>
                         </div>
-                        ;`,
+                        `,
                     
                 Script1:"Home"
             });

@@ -230,7 +230,7 @@ app.get("/Dashboard_Product/safsfsddfdsfdfsgdjkfgdhfjsdkfdsgfdgsfdsjhfdsfdsgfdsg
 app.post("/Dashbord/order/update",require("./Dashboard_Order/Dashboard_OrderSearch_Update.js"));
 
 app.get("*",async(req, res)=>{
-    res.status(200).send("Page not Found");
+    res.status(404).send("Page not Found");
 });
 
 app.listen(process.env.Port,()=>{console.log(`Node JS runned successfully at http://localhost:${process.env.Port}`)});

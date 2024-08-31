@@ -46,6 +46,10 @@ body {
     text-shadow: 1px 0px 10px #8a8c6c;
     /* text-shadow: 1px 0px 10px #f4ff54; */
     text-decoration: none;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .H1 a:hover{
     text-decoration: underline;
