@@ -97,20 +97,12 @@ const check_out = async (req, res) =>{
                 res.status(200).redirect("/cart");
 
             }
-
-
-
-
-
-
-            
         }else{
             res.status(200).redirect("/profile");
         }
     }else{
         res.clearCookie("ID");
         res.status(200).redirect("/login");
-    }
-
-}
+    };
+};
 module.exports = check_out;
